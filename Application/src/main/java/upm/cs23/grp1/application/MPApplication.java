@@ -18,7 +18,7 @@ public class MPApplication extends Application
         Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main-View.fxml")));
         Scene Scene = new Scene(Root);
         PrimaryStage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/University_of_the_Philippines_Manila_Seal.svg/800px-University_of_the_Philippines_Manila_Seal.svg.png"));
-        PrimaryStage.setTitle("Main Window");
+        PrimaryStage.setTitle("Restaurant Inventory System - GRP 5");
         PrimaryStage.setScene(Scene);
         PrimaryStage.setResizable(false);
         PrimaryStage.show();

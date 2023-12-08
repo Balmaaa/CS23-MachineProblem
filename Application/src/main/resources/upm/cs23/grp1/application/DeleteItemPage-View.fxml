@@ -2,27 +2,29 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="upm.cs23.grp1.application.Controller_1">
-    <Button layoutX="406.0" layoutY="130.0" mnemonicParsing="false" onAction="#MainPage" prefHeight="36.0" prefWidth="122.0" text="Main Page">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
+    <Button layoutX="455.0" layoutY="142.0" mnemonicParsing="false" onAction="#MainPage" prefHeight="36.0" prefWidth="122.0" text="Main Page">
         <font>
             <Font name="Arial" size="14.0" />
         </font>
     </Button>
-    <Button layoutX="406.0" layoutY="182.0" mnemonicParsing="false" onAction="#AddItemPage" prefHeight="36.0" prefWidth="122.0" text="Add Items">
+    <Button layoutX="455.0" layoutY="193.0" mnemonicParsing="false" onAction="#AddItemPage" prefHeight="36.0" prefWidth="122.0" text="Add Items">
         <font>
             <Font name="Arial" size="14.0" />
         </font>
     </Button>
-    <Button layoutX="406.0" layoutY="236.0" mnemonicParsing="false" onAction="#DeleteItemPage" prefHeight="36.0" prefWidth="122.0" text="Delete Items">
+    <Button layoutX="455.0" layoutY="245.0" mnemonicParsing="false" onAction="#DeleteItemPage" prefHeight="36.0" prefWidth="122.0" text="Delete Items">
         <font>
             <Font name="Arial" size="14.0" />
         </font>
     </Button>
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="172.0" prefHeight="57.0" prefWidth="139.0" text="Delete Item Page" textAlignment="CENTER">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="14.0" prefHeight="25.0" prefWidth="139.0" text="Delete Item Page" textAlignment="CENTER">
         <font>
             <Font name="Arial" size="14.0" />
         </font>
     </Label>
+    <Rectangle arcHeight="5.0" height="400.0" layoutX="429.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
 </AnchorPane>
