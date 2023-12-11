@@ -4,26 +4,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
-  <Button layoutX="406.0" layoutY="130.0" mnemonicParsing="false" onAction="#MainPage" prefHeight="36.0" prefWidth="122.0" text="Main Page">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
+  <MenuBar prefHeight="25.0" prefWidth="750.0">
+    <Menu mnemonicParsing="false" text="Menu">
+      <MenuItem mnemonicParsing="false" onAction="#MainPage" text="Main Page" />
+      <MenuItem mnemonicParsing="false" onAction="#AddItemPage" text="Add Item Page" />
+      <MenuItem mnemonicParsing="false" onAction="#DeleteItemPage" text="Delete Item Page" />
+      <MenuItem mnemonicParsing="false" onAction="#InventoryPage" text="View Inventory" />
+    </Menu>
+    <Menu mnemonicParsing="false" text="CSV">
+      <MenuItem mnemonicParsing="false" text="Import CSV" />
+      <MenuItem mnemonicParsing="false" text="Export CSV" />
+    </Menu>
+  </MenuBar>
+  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="31.0" prefHeight="46.0" prefWidth="246.0" text="Main Page" textAlignment="CENTER">
     <font>
-      <Font name="Arial" size="14.0" />
-    </font>
-  </Button>
-  <Button layoutX="406.0" layoutY="182.0" mnemonicParsing="false" onAction="#AddItemPage" prefHeight="36.0" prefWidth="122.0" text="Add Items">
-    <font>
-      <Font name="Arial" size="14.0" />
-    </font>
-  </Button>
-  <Button layoutX="406.0" layoutY="236.0" mnemonicParsing="false" onAction="#DeleteItemPage" prefHeight="36.0" prefWidth="122.0" text="Delete Items">
-    <font>
-      <Font name="Arial" size="14.0" />
-    </font>
-  </Button>
-  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="172.0" prefHeight="57.0" prefWidth="139.0"
-         text="Main Page" textAlignment="CENTER">
-    <font>
-      <Font name="Arial" size="14.0"/>
+      <Font name="Arial" size="30.0" />
     </font>
   </Label>
 </AnchorPane>

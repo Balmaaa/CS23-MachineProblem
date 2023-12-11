@@ -3,8 +3,8 @@ package upm.cs23.grp1.application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -26,13 +26,18 @@ public class Controller_1
 
     public void MainPage(ActionEvent Event) throws IOException
     {
-        Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main-View.fxml")));
-        Stage = (Stage)((Node)Event.getSource()).getScene().getWindow();
-        Scene = new Scene(Root);
-        Stage.setScene(Scene);
-        Stage.show();
-    }
+        MenuItem MenuItem = (MenuItem) Event.getSource();
+        String MenuItemText = MenuItem.getText();
 
+        if("Main Page".equals(MenuItemText))
+        {
+            Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main-View.fxml")));
+            Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
+            Scene = new Scene(Root);
+            Stage.setScene(Scene);
+            Stage.show();
+        }
+    }
 
     //================================================================================================================//
     //                                          ADD ITEM PAGE FUNCTIONS                                               //
@@ -40,11 +45,17 @@ public class Controller_1
 
     public void AddItemPage(ActionEvent Event) throws IOException
     {
-        Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddItemPage-View.fxml")));
-        Stage = (Stage)((Node)Event.getSource()).getScene().getWindow();
-        Scene = new Scene(Root);
-        Stage.setScene(Scene);
-        Stage.show();
+        MenuItem MenuItem = (MenuItem) Event.getSource();
+        String MenuItemText = MenuItem.getText();
+
+        if("Add Item Page".equals(MenuItemText))
+        {
+            Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddItemPage-View.fxml")));
+            Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
+            Scene = new Scene(Root);
+            Stage.setScene(Scene);
+            Stage.show();
+        }
     }
 
     @FXML
@@ -117,11 +128,35 @@ public class Controller_1
 
     public void DeleteItemPage(ActionEvent Event) throws IOException
     {
-        Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DeleteItemPage-View.fxml")));
-        Stage = (Stage)((Node)Event.getSource()).getScene().getWindow();
-        Scene = new Scene(Root);
-        Stage.setScene(Scene);
-        Stage.show();
+        MenuItem MenuItem = (MenuItem) Event.getSource();
+        String MenuItemText = MenuItem.getText();
+
+        if("Delete Item Page".equals(MenuItemText))
+        {
+            Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DeleteItemPage-View.fxml")));
+            Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
+            Scene = new Scene(Root);
+            Stage.setScene(Scene);
+            Stage.show();
+        }
     }
 
+    //================================================================================================================//
+    //                                           INVENTORY PAGE FUNCTIONS                                             //
+    //================================================================================================================//
+
+    public void InventoryPage(ActionEvent Event) throws IOException
+    {
+        MenuItem MenuItem = (MenuItem) Event.getSource();
+        String MenuItemText = MenuItem.getText();
+
+        if("View Inventory".equals(MenuItemText))
+        {
+            Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("InventoryPage-View.fxml")));
+            Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
+            Scene = new Scene(Root);
+            Stage.setScene(Scene);
+            Stage.show();
+        }
+    }
 }

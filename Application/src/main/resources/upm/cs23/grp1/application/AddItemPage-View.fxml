@@ -2,45 +2,45 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
-    <Button layoutX="455.0" layoutY="142.0" mnemonicParsing="false" onAction="#MainPage" prefHeight="36.0" prefWidth="122.0" text="Main Page">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
+    <MenuBar prefHeight="25.0" prefWidth="750.0">
+        <Menu mnemonicParsing="false" text="Menu">
+            <MenuItem mnemonicParsing="false" onAction="#MainPage" text="Main Page" />
+            <MenuItem mnemonicParsing="false" onAction="#AddItemPage" text="Add Item Page" />
+            <MenuItem mnemonicParsing="false" onAction="#DeleteItemPage" text="Delete Item Page" />
+            <MenuItem mnemonicParsing="false" onAction="#InventoryPage" text="View Inventory" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="CSV">
+            <MenuItem mnemonicParsing="false" text="Import CSV" />
+            <MenuItem mnemonicParsing="false" text="Export CSV" />
+        </Menu>
+    </MenuBar>
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="31.0" prefHeight="46.0" prefWidth="246.0" text="Add Item Page" textAlignment="CENTER">
         <font>
-            <Font name="Arial" size="14.0" />
-        </font>
-    </Button>
-    <Button layoutX="455.0" layoutY="193.0" mnemonicParsing="false" onAction="#AddItemPage" prefHeight="36.0" prefWidth="122.0" text="Add Items">
-        <font>
-         <Font name="Arial" size="14.0" />
-        </font>
-    </Button>
-    <Button layoutX="455.0" layoutY="245.0" mnemonicParsing="false" onAction="#DeleteItemPage" prefHeight="36.0" prefWidth="122.0" text="Delete Items">
-        <font>
-          <Font name="Arial" size="14.0" />
-        </font>
-    </Button>
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="14.0" prefHeight="25.0" prefWidth="139.0" text="Add Item Page" textAlignment="CENTER">
-        <font>
-          <Font name="Arial" size="14.0" />
+          <Font name="Arial" size="30.0" />
         </font>
     </Label>
-   <TextField fx:id="ItemName" layoutX="33.0" layoutY="51.0" promptText="Item Name" />
-   <TextField fx:id="Category" layoutX="33.0" layoutY="84.0" promptText="Category" />
-   <TextField fx:id="Brand" layoutX="33.0" layoutY="117.0" promptText="Brand" />
-   <TextField fx:id="WeightVolume" layoutX="33.0" layoutY="151.0" promptText="Weight / Volume" />
-   <TextField fx:id="Quantity" layoutX="33.0" layoutY="185.0" promptText="Quantity" />
-   <TextArea fx:id="Description" layoutX="209.0" layoutY="49.0" prefHeight="162.0" prefWidth="200.0" promptText="Item Description" />
-   <Button layoutX="127.0" layoutY="222.0" mnemonicParsing="false" onAction="#AddItemToDisplay" prefHeight="25.0" prefWidth="149.0" text="Add Item To Inventory" />
-   <Text fx:id="AddedItemOutput" layoutX="33.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="378.0">
+   <TextField fx:id="ItemName" layoutX="51.0" layoutY="83.0" prefHeight="27.0" prefWidth="165.0" promptText="Item Name" />
+   <TextField fx:id="Category" layoutX="51.0" layoutY="124.0" prefHeight="27.0" prefWidth="165.0" promptText="Category" />
+   <TextField fx:id="Brand" layoutX="51.0" layoutY="164.0" prefHeight="27.0" prefWidth="165.0" promptText="Brand" />
+   <TextField fx:id="WeightVolume" layoutX="51.0" layoutY="205.0" prefHeight="27.0" prefWidth="165.0" promptText="Weight / Volume" />
+   <TextField fx:id="Quantity" layoutX="51.0" layoutY="244.0" prefHeight="27.0" prefWidth="165.0" promptText="Quantity" />
+   <TextArea fx:id="AddDescription" layoutX="254.0" layoutY="83.0" prefHeight="89.0" prefWidth="445.0" promptText="Item Description" wrapText="true" />
+   <Button layoutX="560.0" layoutY="179.0" mnemonicParsing="false" onAction="#AddItemToDisplay" prefHeight="30.0" prefWidth="139.0" text="Add Item To Inventory" />
+   <Text fx:id="AddedItemOutput" layoutX="254.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
       <font>
          <Font name="Arial" size="15.0" />
       </font></Text>
-   <Text fx:id="GeneratedSKU" layoutX="33.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="378.0">
+   <Text fx:id="GeneratedSKU" layoutX="254.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
       <font>
          <Font name="Arial" size="15.0" />
       </font>
    </Text>
-   <Rectangle arcHeight="5.0" height="400.0" layoutX="429.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+   <Text layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----------------------------------------------------------------------------------------------------------------------------------------------------------" textAlignment="CENTER" wrappingWidth="750.0" />
+   <TextField layoutX="51.0" layoutY="318.0" prefHeight="27.0" prefWidth="165.0" promptText="Item Name / SKU" />
+   <TextField layoutX="51.0" layoutY="360.0" prefHeight="27.0" prefWidth="165.0" promptText="Item Quantity" />
+   <Button layoutX="64.0" layoutY="399.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Consume Item Stock" />
+   <Button layoutX="64.0" layoutY="441.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Update Item Stock" />
 </AnchorPane>
