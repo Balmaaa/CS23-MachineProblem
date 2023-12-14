@@ -43,4 +43,14 @@
    <TextField layoutX="51.0" layoutY="360.0" prefHeight="27.0" prefWidth="165.0" promptText="Item Quantity" />
    <Button layoutX="64.0" layoutY="399.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Consume Item Stock" />
    <Button layoutX="64.0" layoutY="441.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Update Item Stock" />
+   <Text fx:id="AddedItemOutput1" layoutX="262.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
+      <font>
+         <Font name="Arial" size="15.0" />
+      </font>
+   </Text>
+   <Text fx:id="AddedItemOutput11" layoutX="262.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
+      <font>
+         <Font name="Arial" size="15.0" />
+      </font>
+   </Text>
 </AnchorPane>

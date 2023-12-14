@@ -22,4 +22,15 @@
             <Font name="Arial" size="30.0" />
         </font>
     </Label>
+   <TableView fx:id="InventoryTable" layoutX="13.0" layoutY="77.0" prefHeight="408.0" prefWidth="725.0">
+     <columns>
+       <TableColumn fx:id="SKUColumn" prefWidth="75.0" text="SKU" />
+       <TableColumn fx:id="ItemColumn" prefWidth="120.0" text="Item" />
+         <TableColumn fx:id="WeightVolumeColumn" prefWidth="103.0" text="Weight/Volume" />
+         <TableColumn fx:id="CategoryColumn" prefWidth="91.0" text="Category" />
+         <TableColumn fx:id="BrandColumn" prefWidth="76.0" text="Brand" />
+         <TableColumn fx:id="QuantityColumn" text="Quantity" />
+         <TableColumn fx:id="DescriptionColumn" prefWidth="179.0" text="Description" />
+     </columns>
+   </TableView>
 </AnchorPane>
