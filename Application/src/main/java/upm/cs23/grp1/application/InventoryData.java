@@ -5,92 +5,30 @@ import javafx.beans.property.StringProperty;
 
 public class InventoryData
 {
-    private final StringProperty SKUData;
-    private final StringProperty ItemData;
-    private final StringProperty WeightData;
-    private final StringProperty CategoryData;
-    private final StringProperty BrandData;
-    private final StringProperty QuantityData;
-    private final StringProperty DescriptionData;
+    private final StringProperty SKU;
+    private final StringProperty ItemName;
+    private final StringProperty WeightVolume;
+    private final StringProperty Category;
+    private final StringProperty Brand;
+    private final StringProperty Quantity;
+    private final StringProperty Description;
 
-    public String getSKUData()
-    {
-        return SKUData.get();
+    public InventoryData(String SKU, String ItemName, String WeightVolume, String Category, String Brand, String Quantity, String Description) {
+        this.SKU = new SimpleStringProperty(SKU);
+        this.ItemName = new SimpleStringProperty(ItemName);
+        this.WeightVolume = new SimpleStringProperty(WeightVolume);
+        this.Category = new SimpleStringProperty(Category);
+        this.Brand = new SimpleStringProperty(Brand);
+        this.Quantity = new SimpleStringProperty(Quantity);
+        this.Description = new SimpleStringProperty(Description);
     }
 
-    public StringProperty SKUDataProperty()
-    {
-        return SKUData;
-    }
+    public StringProperty SKUProperty() {return SKU;}
+    public StringProperty ItemNameProperty() {return ItemName;}
+    public StringProperty WeightVolumeProperty() {return WeightVolume;}
+    public StringProperty CategoryProperty() {return Category;}
+    public StringProperty BrandProperty() {return Brand;}
+    public StringProperty QuantityProperty() {return Quantity;}
+    public StringProperty DescriptionProperty() {return Description;}
 
-    public String getItemData()
-    {
-        return ItemData.get();
-    }
-
-    public StringProperty ItemDataProperty()
-    {
-        return ItemData;
-    }
-
-    public String getWeightData()
-    {
-        return WeightData.get();
-    }
-
-    public StringProperty WeightDataProperty()
-    {
-        return WeightData;
-    }
-
-    public String getCategoryData()
-    {
-        return CategoryData.get();
-    }
-
-    public StringProperty CategoryDataProperty()
-    {
-        return CategoryData;
-    }
-
-    public String getBrandData()
-    {
-        return BrandData.get();
-    }
-
-    public StringProperty BrandDataProperty()
-    {
-        return BrandData;
-    }
-
-    public String getQuantityData()
-    {
-        return QuantityData.get();
-    }
-
-    public StringProperty QuantityDataProperty()
-    {
-        return QuantityData;
-    }
-
-    public String getDescriptionData()
-    {
-        return DescriptionData.get();
-    }
-
-    public StringProperty DescriptionDataProperty()
-    {
-        return DescriptionData;
-    }
-
-    public InventoryData(String SKUData, String ItemData, String WeightData, String CategoryData, String BrandData, String QuantityData, String DescriptionData)
-    {
-        this.SKUData = new SimpleStringProperty(SKUData);
-        this.ItemData = new SimpleStringProperty(ItemData);
-        this.WeightData = new SimpleStringProperty(WeightData);
-        this.CategoryData = new SimpleStringProperty(CategoryData);
-        this.BrandData = new SimpleStringProperty(BrandData);
-        this.QuantityData = new SimpleStringProperty(QuantityData);
-        this.DescriptionData = new SimpleStringProperty(DescriptionData);
-    }
 }

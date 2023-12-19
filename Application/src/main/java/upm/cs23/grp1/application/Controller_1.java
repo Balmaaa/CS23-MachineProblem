@@ -1,13 +1,10 @@
 package upm.cs23.grp1.application;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -177,75 +174,31 @@ public class Controller_1
     private final ArrayList<String> DescriptionList = new ArrayList<>();
     public void AddSKU(String SKU_NewData)
     {
-        this.SKUList.add(SKU_NewData);
+        SKUList.add(SKU_NewData);
     }
     public void AddItem(String Item_NewData)
     {
-        this.ItemList.add(Item_NewData);
+        ItemList.add(Item_NewData);
     }
     public void AddWeight(String Weight_NewData)
     {
-        this.WeightVolumeList.add(Weight_NewData);
+        WeightVolumeList.add(Weight_NewData);
     }
     public void AddCategory(String Category_NewData)
     {
-        this.CategoryList.add(Category_NewData);
+        CategoryList.add(Category_NewData);
     }
     public void AddBrand(String Brand_NewData)
     {
-        this.BrandList.add(Brand_NewData);
+        BrandList.add(Brand_NewData);
     }
     public void AddQuantity(String Quantity_NewData)
     {
-        this.QuantityList.add(Quantity_NewData);
+        QuantityList.add(Quantity_NewData);
     }
     public void AddDescription(String Description_NewData)
     {
-        this.DescriptionList.add(Description_NewData);
-    }
-
-    @FXML
-    private TableView<InventoryData> InventoryTable;
-
-    @FXML
-    private TableColumn<InventoryData, String> SKUColumn;
-
-    @FXML
-    private TableColumn<InventoryData, String> ItemColumn;
-
-    @FXML
-    private TableColumn<InventoryData, String> WeightVolumeColumn;
-
-    @FXML
-    private TableColumn<InventoryData, String> CategoryColumn;
-
-    @FXML
-    private TableColumn<InventoryData, String> BrandColumn;
-
-    @FXML
-    private TableColumn<InventoryData, String> QuantityColumn;
-
-    @FXML
-    private TableColumn<InventoryData, String> DescriptionColumn;
-
-    public void DataInitialize(ArrayList<String> SKUList, ArrayList<String> ItemList, ArrayList<String> WeightVolumeList, ArrayList<String> CategoryList, ArrayList<String> BrandList, ArrayList<String> QuantityList, ArrayList<String> DescriptionList)
-    {
-        ObservableList<InventoryData> Data = FXCollections.observableArrayList();
-        int minLength = Math.min(Math.min(Math.min(Math.min(Math.min(SKUList.size(), ItemList.size()), WeightVolumeList.size()), CategoryList.size()), BrandList.size()), QuantityList.size());
-
-        for(int i = 0; i < minLength; i++)
-        {
-            Data.add(new InventoryData(SKUList.get(i), ItemList.get(i), WeightVolumeList.get(i), CategoryList.get(i), BrandList.get(i), QuantityList.get(i), DescriptionList.get(i)));
-        }
-
-        InventoryTable.setItems(Data);
-        SKUColumn.setCellValueFactory(new PropertyValueFactory<>("SKUData"));
-        ItemColumn.setCellValueFactory(new PropertyValueFactory<>("ItemData"));
-        WeightVolumeColumn.setCellValueFactory(new PropertyValueFactory<>("WeightData"));
-        CategoryColumn.setCellValueFactory(new PropertyValueFactory<>("CategoryData"));
-        BrandColumn.setCellValueFactory(new PropertyValueFactory<>("BrandData"));
-        QuantityColumn.setCellValueFactory(new PropertyValueFactory<>("QuantityData"));
-        DescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("DescriptionData"));
+        DescriptionList.add(Description_NewData);
     }
 
     public void InventoryPage(ActionEvent Event) throws IOException
@@ -255,11 +208,14 @@ public class Controller_1
 
         if("View Inventory".equals(MenuItemText))
         {
-            Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("InventoryPage-View.fxml")));
-            Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
-            Scene = new Scene(Root);
-            Stage.setScene(Scene);
-            Stage.show();
+            FXMLLoader Loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
+            Parent Root = Loader.load();
+            MPApplication.GetInventoryStage().setScene(new Scene(Root));
+
+
+            InventoryTableController InventoryController = Loader.getController();
+            InventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
+            MPApplication.GetInventoryStage().show();
         }
     }
 }

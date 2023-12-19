@@ -4,19 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
-    <MenuBar prefHeight="25.0" prefWidth="750.0">
-        <Menu mnemonicParsing="false" text="Menu">
-            <MenuItem mnemonicParsing="false" onAction="#MainPage" text="Main Page" />
-            <MenuItem mnemonicParsing="false" onAction="#AddItemPage" text="Add Item Page" />
-            <MenuItem mnemonicParsing="false" onAction="#DeleteItemPage" text="Delete Item Page" />
-            <MenuItem mnemonicParsing="false" onAction="#InventoryPage" text="View Inventory" />
-        </Menu>
-        <Menu mnemonicParsing="false" text="CSV">
-            <MenuItem mnemonicParsing="false" text="Import CSV" />
-            <MenuItem mnemonicParsing="false" text="Export CSV" />
-        </Menu>
-    </MenuBar>
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.InventoryTableController">
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="31.0" prefHeight="46.0" prefWidth="246.0" text="Item Inventory" textAlignment="CENTER">
         <font>
             <Font name="Arial" size="30.0" />
@@ -24,13 +12,13 @@
     </Label>
    <TableView fx:id="InventoryTable" layoutX="13.0" layoutY="77.0" prefHeight="408.0" prefWidth="725.0">
      <columns>
-       <TableColumn fx:id="SKUColumn" prefWidth="75.0" text="SKU" />
-       <TableColumn fx:id="ItemColumn" prefWidth="120.0" text="Item" />
-         <TableColumn fx:id="WeightVolumeColumn" prefWidth="103.0" text="Weight/Volume" />
+       <TableColumn fx:id="SKUColumn" prefWidth="94.0" text="SKU" />
+       <TableColumn fx:id="ItemColumn" prefWidth="101.0" text="Item" />
+         <TableColumn fx:id="WeightVolumeColumn" prefWidth="112.0" text="Weight/Volume" />
          <TableColumn fx:id="CategoryColumn" prefWidth="91.0" text="Category" />
-         <TableColumn fx:id="BrandColumn" prefWidth="76.0" text="Brand" />
-         <TableColumn fx:id="QuantityColumn" text="Quantity" />
-         <TableColumn fx:id="DescriptionColumn" prefWidth="179.0" text="Description" />
+         <TableColumn fx:id="BrandColumn" prefWidth="75.0" text="Brand" />
+         <TableColumn fx:id="QuantityColumn" prefWidth="116.0" text="Quantity" />
+         <TableColumn fx:id="DescriptionColumn" prefWidth="135.0" text="Description" />
      </columns>
    </TableView>
 </AnchorPane>
