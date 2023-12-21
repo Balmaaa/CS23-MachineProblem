@@ -1,0 +1,39 @@
+#AddItemButton:hover
+{
+    -fx-padding: 5px;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-background-color: 'white';
+    -fx-border-radius: 6px;
+    transition-duration: 0.4s;
+    -fx-background-color: #39FF14;
+    -fx-font-weight: bold;
+}
+
+
+#ConsumeItemButton:hover
+{
+    -fx-padding: 5px;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-background-color: 'white';
+    -fx-border-radius: 6px;
+    transition-duration: 0.4s;
+    -fx-background-color: #ff1414;
+    -fx-font-weight: bold;
+}
+
+#UpdateItemButton:hover
+{
+    -fx-padding: 5px;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-background-color: 'white';
+    -fx-border-radius: 6px;
+    transition-duration: 0.4s;
+    -fx-background-color: #39FF14;
+    -fx-font-weight: bold;
+}

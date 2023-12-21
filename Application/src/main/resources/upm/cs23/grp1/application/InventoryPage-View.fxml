@@ -2,15 +2,19 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.InventoryTableController">
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="31.0" prefHeight="46.0" prefWidth="246.0" text="Item Inventory" textAlignment="CENTER">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="52.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="3.0" prefHeight="46.0" prefWidth="246.0" text="Item Inventory" textAlignment="CENTER" textFill="WHITE">
         <font>
-            <Font name="Arial" size="30.0" />
+            <Font name="Century Gothic Bold" size="30.0" />
         </font>
     </Label>
-   <TableView fx:id="InventoryTable" layoutX="13.0" layoutY="77.0" prefHeight="408.0" prefWidth="725.0">
+   <Button layoutX="164.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Import CSV" />
+   <Button layoutX="400.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Export CSV" />
+   <TableView fx:id="InventoryTable" layoutX="13.0" layoutY="57.0" prefHeight="396.0" prefWidth="725.0">
      <columns>
        <TableColumn fx:id="SKUColumn" prefWidth="94.0" text="SKU" />
        <TableColumn fx:id="ItemColumn" prefWidth="101.0" text="Item" />

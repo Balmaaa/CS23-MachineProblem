@@ -50,6 +50,7 @@ public class Controller_1
         if("Add Item Page".equals(MenuItemText))
         {
             Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddItemPage-View.fxml")));
+            Root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("AddItemPage-Design.css")).toExternalForm());
             Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
             Scene = new Scene(Root);
             Stage.setScene(Scene);
