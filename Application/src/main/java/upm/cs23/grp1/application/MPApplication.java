@@ -37,7 +37,7 @@ public class MPApplication extends Application
     {
         InventoryStage = new Stage();
         InventoryStage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/University_of_the_Philippines_Manila_Seal.svg/800px-University_of_the_Philippines_Manila_Seal.svg.png"));
-        InventoryStage.setTitle("Calculator History - BALMACEDA");
+        InventoryStage.setTitle("Restaurant Inventory - BALMACEDA");
         InventoryStage.setAlwaysOnTop(true);
         InventoryStage.setResizable(false);
         InventoryStage.initModality(Modality.APPLICATION_MODAL);
