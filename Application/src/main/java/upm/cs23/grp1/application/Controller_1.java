@@ -3,6 +3,7 @@ package upm.cs23.grp1.application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Optional;
 
 
 public class Controller_1
@@ -99,7 +101,40 @@ public class Controller_1
             MPApplication.GetInventoryStage().show();
         }
     }
-    
+
+    public void ExitConfirmationPage(ActionEvent Event)
+    {
+        Alert Alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+        Alert.setTitle("Exit Confirmation");
+        Alert.setHeaderText("You Will Be Exiting the Application");
+        Alert.setContentText("Do You Want To Export CSV Before Exiting?");
+
+        ButtonType YesButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+        ButtonType NoButton = new ButtonType("No", ButtonBar.ButtonData.NO);
+        ButtonType CancelButton = new ButtonType("Cancel Exit", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Alert.getButtonTypes().setAll(YesButton, NoButton, CancelButton);
+
+        Optional<ButtonType> Result = Alert.showAndWait();
+        if(Result.isPresent())
+        {
+            if(Result.get().equals(YesButton))
+            {
+                System.out.println("Program Terminated");
+                Stage Stage = (Stage) ((Node) Event.getSource()).getScene().getWindow();
+                Stage.close();
+            }
+            else if(Result.get().equals(NoButton))
+            {
+                System.exit(0);
+            }
+            else if(Result.get().equals(CancelButton))
+            {
+                System.out.println("Exit Operation Cancelled");
+            }
+        }
+    }
+
     //================================================================================================================//
     //                                          ADD ITEM PAGE FUNCTIONS                                               //
     //================================================================================================================//

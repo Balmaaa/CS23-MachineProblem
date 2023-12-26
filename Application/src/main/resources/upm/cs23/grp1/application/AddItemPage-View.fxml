@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -14,6 +15,11 @@
             <MenuItem mnemonicParsing="false" onAction="#DeleteItemPage" text="Delete Item Page" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" onAction="#InventoryPage" text="View Inventory" />
+         <SeparatorMenuItem mnemonicParsing="false" />
+         <MenuItem mnemonicParsing="false" onAction="#ExitConfirmationPage" text="Exit Application">
+            <accelerator>
+               <KeyCodeCombination alt="DOWN" code="E" control="UP" meta="UP" shift="UP" shortcut="UP" />
+            </accelerator></MenuItem>
         </Menu>
     </MenuBar>
    <Rectangle arcHeight="5.0" arcWidth="5.0" height="52.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
