@@ -22,7 +22,7 @@ public class MPApplication extends Application
     {
         Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main-View.fxml")));
         Scene Scene = new Scene(Root);
-        PrimaryStage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/University_of_the_Philippines_Manila_Seal.svg/800px-University_of_the_Philippines_Manila_Seal.svg.png"));
+        PrimaryStage.getIcons().add(new Image("https://pngimg.com/d/chef_PNG134.png"));
         PrimaryStage.setTitle("Restaurant Inventory System - GRP 5");
         PrimaryStage.setScene(Scene);
         PrimaryStage.setResizable(false);
@@ -33,11 +33,11 @@ public class MPApplication extends Application
 
     public void ExitConfirmationPage(Stage Stage)
     {
-        Alert Alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+        Alert Alert = new Alert(javafx.scene.control.Alert.AlertType.WARNING);
         Alert.setTitle("Exit Confirmation");
         Alert.setHeaderText("You Will Be Exiting the Application");
         Alert.setContentText("Do You Want To Export CSV Before Exiting?");
-
+        
         ButtonType YesButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
         ButtonType NoButton = new ButtonType("No", ButtonBar.ButtonData.NO);
         ButtonType CancelButton = new ButtonType("Cancel Exit", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -73,7 +73,7 @@ public class MPApplication extends Application
     public void InventoryStage()
     {
         InventoryStage = new Stage();
-        InventoryStage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/University_of_the_Philippines_Manila_Seal.svg/800px-University_of_the_Philippines_Manila_Seal.svg.png"));
+        InventoryStage.getIcons().add(new Image("https://pngimg.com/d/chef_PNG134.png"));
         InventoryStage.setTitle("Restaurant Inventory - BALMACEDA");
         InventoryStage.setAlwaysOnTop(true);
         InventoryStage.setResizable(false);

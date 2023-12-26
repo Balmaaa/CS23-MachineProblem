@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -104,7 +105,7 @@ public class Controller_1
 
     public void ExitConfirmationPage(ActionEvent Event)
     {
-        Alert Alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+        Alert Alert = new Alert(javafx.scene.control.Alert.AlertType.WARNING);
         Alert.setTitle("Exit Confirmation");
         Alert.setHeaderText("You Will Be Exiting the Application");
         Alert.setContentText("Do You Want To Export CSV Before Exiting?");
