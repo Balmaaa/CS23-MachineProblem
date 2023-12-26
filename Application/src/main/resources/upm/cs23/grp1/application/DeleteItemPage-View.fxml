@@ -9,13 +9,11 @@
     <MenuBar prefHeight="25.0" prefWidth="750.0">
         <Menu mnemonicParsing="false" text="Menu">
             <MenuItem mnemonicParsing="false" onAction="#MainPage" text="Main Page" />
+            <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" onAction="#AddItemPage" text="Add Item Page" />
             <MenuItem mnemonicParsing="false" onAction="#DeleteItemPage" text="Delete Item Page" />
+            <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" onAction="#InventoryPage" text="View Inventory" />
-        </Menu>
-        <Menu mnemonicParsing="false" text="CSV">
-            <MenuItem mnemonicParsing="false" text="Import CSV" />
-            <MenuItem mnemonicParsing="false" text="Export CSV" />
         </Menu>
     </MenuBar>
     <Rectangle arcHeight="5.0" arcWidth="5.0" height="52.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />

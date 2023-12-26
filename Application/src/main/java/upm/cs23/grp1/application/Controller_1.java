@@ -24,13 +24,17 @@ public class Controller_1
     //================================================================================================================//
 
     /**
-     * <p>MainPage() == Allows the code to transition from any page to the Main Page</p>
-     * <p>AddItemPage() == Allows the code to transition from any page to the Add Item Page</p>
-     * <p>DeleteItemPage() == Allows the code to transition from any page to the Delete Item Page</p>
-     * <p>InventoryPage() == Allows the code to transition from any page to the Inventory Page</p>
+     * <p>MainPage() == Transition from any page to the Main Page</p>
+     * <p>AddItemPage() == Transition from any page to the Add Item Page</p>
+     * <p>DeleteItemPage() == Transition from any page to the Delete Item Page</p>
+     * <p>InventoryPage() == Transition from any page to the Inventory Page</p>
      * <p></p>
      * <p>Note: All of the Page Transitions would use the Menu Bar for Quicker Access</p>
+     * <p></p>
      * @author Gabriel Balmaceda
+     * @author Leonna De Vera
+     * @author Louis Lumain
+     * @author Emiel Magante
      */
 
     public void MainPage(ActionEvent Event) throws IOException
@@ -88,15 +92,14 @@ public class Controller_1
         {
             FXMLLoader Loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
             Parent Root = Loader.load();
+            Root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("InventoryPage-Design.css")).toExternalForm());
             MPApplication.GetInventoryStage().setScene(new Scene(Root));
-
-
             InventoryTableController InventoryController = Loader.getController();
             InventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
             MPApplication.GetInventoryStage().show();
         }
     }
-
+    
     //================================================================================================================//
     //                                          ADD ITEM PAGE FUNCTIONS                                               //
     //================================================================================================================//
@@ -108,14 +111,16 @@ public class Controller_1
      * <p>The ClearInputFields() Method is able to clear all the previous inputs made by the user within all text fields.
      * This allows a quicker yet convenient way of continuously adding items to the inventory without having to manually
      * remove the previous inputs one-by-one.</p>
-     * <p>The AddItemToDisplay() Method is used when the user has completed filling up all the required information from
+     * <p>The AddItemToDisplay() Method is used when the user has accomplished filling up all the required information from
      * the text fields and text areas. Upon pressing the button, the code would begin by acquiring the text from the said
      * fields and converting such to a string. Afterwards, it will gather the necessary information:</p>
      * <p>(First Three Consonants of the Category/First Three Letters of the Item Name-Randomized Numbers Ranging from 0000-9999)</p>
      * <p>When All the Information is arranged and packed into one whole string, it will then be displayed in the interface.
      * To add, the information gathered is simultaneously added to the InventoryTable in the Inventory Page</p>
-     * @author Gabriel Balmaceda
      */
+
+    @FXML
+    private Text ErrorMessage;
 
     @FXML
     private Text AddedItemOutput;
@@ -160,45 +165,63 @@ public class Controller_1
     @FXML
     private void AddItemToDisplay()
     {
-        String ItemNameText = ItemName.getText();
-        String CategoryText = Category.getText();
-        String BrandText = Brand.getText();
-        String WeightVolumeText = WeightVolume.getText();
-        String DescriptionText = AddDescription.getText();
-        int QuantityNumber = Integer.parseInt(Quantity.getText());
-        int SKUItemVal = (int) (Math.random() * (9999));
-        String FixedFourDigitSKU = String.format("%04d", SKUItemVal);
-        String SKUItem = ItemNameText.substring(0, Math.min(ItemNameText.length(), 3)).toUpperCase();
-
-        StringBuilder SKUCategory = new StringBuilder();
-        String SKUFix = CategoryText.toLowerCase();
-        int ConsonantCount = 0;
-        for(char C : SKUFix.toCharArray())
+        if(ItemName.getText().isEmpty() || Category.getText().isEmpty() || Brand.getText().isEmpty() ||
+                WeightVolume.getText().isEmpty() || Quantity.getText().isEmpty() || AddDescription.getText().isEmpty())
         {
-            if(ConsonantCount == 3)
-            {
-                break;
-            }
+            ErrorMessage.setText("Fill In All Required Information");
+            AddedItemOutput.setText("");
+            GeneratedSKU.setText("");
+            ClearInputFields();
+        }
+        else
+        {
+            String ItemNameText = ItemName.getText();
+            String CategoryText = Category.getText();
+            String BrandText = Brand.getText();
+            String WeightVolumeText = WeightVolume.getText();
+            String DescriptionText = AddDescription.getText();
 
-            if((C >= 'a' && C <= 'z') && !Vowels(C))
+            try {
+                int QuantityNumber = Integer.parseInt(Quantity.getText());
+                int SKUItemVal = (int) (Math.random() * (9999));
+                String FixedFourDigitSKU = String.format("%04d", SKUItemVal);
+                String SKUItem = ItemNameText.substring(0, Math.min(ItemNameText.length(), 3)).toUpperCase();
+
+                StringBuilder SKUCategory = new StringBuilder();
+                String SKUFix = CategoryText.toLowerCase();
+                int ConsonantCount = 0;
+                for (char C : SKUFix.toCharArray()) {
+                    if (ConsonantCount == 3) {
+                        break;
+                    }
+
+                    if ((C >= 'a' && C <= 'z') && !Vowels(C)) {
+                        SKUCategory.append(C);
+                        ConsonantCount++;
+                    }
+                }
+
+                ErrorMessage.setText("");
+                AddedItemOutput.setText("Item: " + ItemNameText + " | " + CategoryText + " | " + BrandText + " | " + WeightVolumeText + " | " + QuantityNumber);
+                GeneratedSKU.setText("SKU: " + (SKUCategory.toString().toUpperCase()) + "/" + SKUItem + "-" + FixedFourDigitSKU);
+
+                String SKUText = SKUCategory.toString().toUpperCase() + "/" + SKUItem + "-" + FixedFourDigitSKU;
+                AddSKU(SKUText);
+                AddItem(ItemNameText);
+                AddWeight(WeightVolumeText);
+                AddCategory(CategoryText);
+                AddBrand(BrandText);
+                AddQuantity(String.valueOf(QuantityNumber));
+                AddDescription(DescriptionText);
+            }
+            catch(NumberFormatException E)
             {
-                SKUCategory.append(C);
-                ConsonantCount++;
+                ErrorMessage.setText("Quantity Must Be A Number");
+                AddedItemOutput.setText("");
+                GeneratedSKU.setText("");
+                ClearInputFields();
             }
         }
-
-        AddedItemOutput.setText("Item: " + ItemNameText + " | " + CategoryText + " | " + BrandText + " | " + WeightVolumeText + " | " + QuantityNumber);
-        GeneratedSKU.setText("SKU: " + (SKUCategory.toString().toUpperCase()) + "/" + SKUItem + "-" + FixedFourDigitSKU);
-
-        String SKUText = SKUCategory.toString().toUpperCase() + "/" + SKUItem + "-" + FixedFourDigitSKU;
-        AddSKU(SKUText);
-        AddItem(ItemNameText);
-        AddWeight(WeightVolumeText);
-        AddCategory(CategoryText);
-        AddBrand(BrandText);
-        AddQuantity(String.valueOf(QuantityNumber));
-        AddDescription(DescriptionText);
-
         ClearInputFields();
     }
 
