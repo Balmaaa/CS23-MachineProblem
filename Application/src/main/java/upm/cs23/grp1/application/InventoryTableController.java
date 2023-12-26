@@ -37,7 +37,6 @@ public class InventoryTableController
     public void DataInitialize(ArrayList<String> SKUList, ArrayList<String> ItemList, ArrayList<String> WeightVolumeList, ArrayList<String> CategoryList, ArrayList<String> BrandList, ArrayList<String> QuantityList, ArrayList<String> DescriptionList)
     {
         ObservableList<InventoryData> Data = FXCollections.observableArrayList();
-
         int MinLength = Math.min(Math.min(Math.min(Math.min(Math.min(SKUList.size(), ItemList.size()), WeightVolumeList.size()), CategoryList.size()), BrandList.size()), QuantityList.size());
         for(int i = 0; i < MinLength; i++)
         {

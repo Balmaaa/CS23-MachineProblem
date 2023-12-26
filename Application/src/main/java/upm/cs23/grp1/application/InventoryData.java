@@ -13,7 +13,8 @@ public class InventoryData
     private final StringProperty Quantity;
     private final StringProperty Description;
 
-    public InventoryData(String SKU, String ItemName, String WeightVolume, String Category, String Brand, String Quantity, String Description) {
+    public InventoryData(String SKU, String ItemName, String WeightVolume, String Category, String Brand, String Quantity, String Description)
+    {
         this.SKU = new SimpleStringProperty(SKU);
         this.ItemName = new SimpleStringProperty(ItemName);
         this.WeightVolume = new SimpleStringProperty(WeightVolume);
@@ -30,5 +31,4 @@ public class InventoryData
     public StringProperty BrandProperty() {return Brand;}
     public StringProperty QuantityProperty() {return Quantity;}
     public StringProperty DescriptionProperty() {return Description;}
-
 }

@@ -216,7 +216,8 @@ public class Controller_1
             String WeightVolumeText = WeightVolume.getText();
             String DescriptionText = AddDescription.getText();
 
-            try {
+            try
+            {
                 int QuantityNumber = Integer.parseInt(Quantity.getText());
                 int SKUItemVal = (int) (Math.random() * (9999));
                 String FixedFourDigitSKU = String.format("%04d", SKUItemVal);
@@ -225,12 +226,14 @@ public class Controller_1
                 StringBuilder SKUCategory = new StringBuilder();
                 String SKUFix = CategoryText.toLowerCase();
                 int ConsonantCount = 0;
-                for (char C : SKUFix.toCharArray()) {
-                    if (ConsonantCount == 3) {
+                for (char C : SKUFix.toCharArray())
+                {
+                    if (ConsonantCount == 3)
+                    {
                         break;
                     }
-
-                    if ((C >= 'a' && C <= 'z') && !Vowels(C)) {
+                    if ((C >= 'a' && C <= 'z') && !Vowels(C))
+                    {
                         SKUCategory.append(C);
                         ConsonantCount++;
                     }
@@ -277,6 +280,7 @@ public class Controller_1
     private final ArrayList<String> BrandList = new ArrayList<>();
     private final ArrayList<String> QuantityList = new ArrayList<>();
     private final ArrayList<String> DescriptionList = new ArrayList<>();
+
     public void AddSKU(String SKU_NewData)
     {
         SKUList.add(SKU_NewData);
