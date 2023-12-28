@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -222,10 +221,9 @@ public class Controller_1
                 int QuantityNumber = Integer.parseInt(Quantity.getText());
                 int SKUItemVal = (int) (Math.random() * (9999));
                 String FixedFourDigitSKU = String.format("%04d", SKUItemVal);
-                String SKUItem = ItemNameText.substring(0, Math.min(ItemNameText.length(), 3)).toUpperCase();
 
                 StringBuilder SKUCategory = new StringBuilder();
-                String SKUFix = CategoryText.toLowerCase();
+                String SKUFix = CategoryText.toLowerCase().replace(" ", "");
                 int ConsonantCount = 0;
                 for (char C : SKUFix.toCharArray())
                 {
@@ -233,18 +231,34 @@ public class Controller_1
                     {
                         break;
                     }
-                    if ((C >= 'a' && C <= 'z') && !Vowels(C))
+                    if (!Vowels(C))
                     {
                         SKUCategory.append(C);
                         ConsonantCount++;
                     }
                 }
 
+                StringBuilder SKUItem = new StringBuilder();
+                String SKUFixItem = ItemNameText.toLowerCase().replace(" ", "");
+                int ConsonantCount_Item = 0;
+                for (char C : SKUFixItem.toCharArray())
+                {
+                    if (ConsonantCount_Item == 3)
+                    {
+                        break;
+                    }
+                    if (!Vowels(C))
+                    {
+                        SKUItem.append(C);
+                        ConsonantCount_Item++;
+                    }
+                }
+                
                 ErrorMessage.setText("");
                 AddedItemOutput.setText("Item: " + ItemNameText + " | " + CategoryText + " | " + BrandText + " | " + WeightVolumeText + " | " + QuantityNumber);
-                GeneratedSKU.setText("SKU: " + (SKUCategory.toString().toUpperCase()) + "/" + SKUItem + "-" + FixedFourDigitSKU);
+                GeneratedSKU.setText("SKU: " + (SKUCategory.toString().toUpperCase()) + "/" + (SKUItem.toString().toUpperCase()) + "-" + FixedFourDigitSKU);
 
-                String SKUText = SKUCategory.toString().toUpperCase() + "/" + SKUItem + "-" + FixedFourDigitSKU;
+                String SKUText = (SKUCategory.toString().toUpperCase()) + "/" + (SKUItem.toString().toUpperCase()) + "-" + FixedFourDigitSKU;
                 AddSKU(SKUText);
                 AddItem(ItemNameText);
                 AddWeight(WeightVolumeText);

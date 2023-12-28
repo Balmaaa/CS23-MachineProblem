@@ -37,7 +37,7 @@ public class MPApplication extends Application
         Alert.setTitle("Exit Confirmation");
         Alert.setHeaderText("You Will Be Exiting the Application");
         Alert.setContentText("Do You Want To Export CSV Before Exiting?");
-        
+
         ButtonType YesButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
         ButtonType NoButton = new ButtonType("No", ButtonBar.ButtonData.NO);
         ButtonType CancelButton = new ButtonType("Cancel Exit", ButtonBar.ButtonData.CANCEL_CLOSE);
