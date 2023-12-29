@@ -4,6 +4,7 @@
 <?import javafx.scene.input.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
 
 <AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
   <MenuBar prefHeight="25.0" prefWidth="750.0">
@@ -21,9 +22,10 @@
         </accelerator></MenuItem>
     </Menu>
   </MenuBar>
-  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="31.0" prefHeight="46.0" prefWidth="246.0" text="Main Page" textAlignment="CENTER">
+  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" layoutY="24.0" stroke="#5c9bff" strokeType="INSIDE" width="750.0" />
+  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="27.0" prefHeight="46.0" prefWidth="246.0" text="Main Page" textAlignment="CENTER" textFill="WHITE">
     <font>
-      <Font name="Arial" size="30.0" />
+      <Font name="Century Gothic Bold" size="30.0" />
     </font>
   </Label>
 </AnchorPane>

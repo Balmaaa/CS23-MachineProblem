@@ -22,8 +22,8 @@
             </accelerator></MenuItem>
         </Menu>
     </MenuBar>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" height="52.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
-    <Label fx:id="AddPageTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="27.0" prefHeight="46.0" prefWidth="246.0" text="Add Item Page" textAlignment="CENTER" textFill="WHITE">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" layoutY="24.0" stroke="#5c9bff" strokeType="INSIDE" width="750.0" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="27.0" prefHeight="46.0" prefWidth="246.0" text="Add Item Page" textAlignment="CENTER" textFill="WHITE">
         <font>
           <Font name="Century Gothic Bold" size="30.0" />
         </font>
@@ -54,12 +54,12 @@
    <TextField layoutX="51.0" layoutY="368.0" prefHeight="27.0" prefWidth="165.0" promptText="Item Quantity" />
    <Button fx:id="ConsumeItemButton" layoutX="64.0" layoutY="407.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Consume Item Stock" />
    <Button fx:id="UpdateItemButton" layoutX="64.0" layoutY="449.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Update Item Stock" />
-   <Text fx:id="AddedItemOutput1" layoutX="262.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
+   <Text fx:id="ConsumeItemStock" layoutX="262.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
       <font>
          <Font name="Arial" size="15.0" />
       </font>
    </Text>
-   <Text fx:id="AddedItemOutput11" layoutX="262.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
+   <Text fx:id="UpdateItemStock" layoutX="262.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
       <font>
          <Font name="Arial" size="15.0" />
       </font>

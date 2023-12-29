@@ -155,6 +155,12 @@ public class Controller_1
      */
 
     @FXML
+    private Text ConsumeItemStock;
+
+    @FXML
+    private Text UpdateItemStock;
+
+    @FXML
     private Text ErrorMessage;
 
     @FXML
@@ -253,7 +259,7 @@ public class Controller_1
                         ConsonantCount_Item++;
                     }
                 }
-                
+
                 ErrorMessage.setText("");
                 AddedItemOutput.setText("Item: " + ItemNameText + " | " + CategoryText + " | " + BrandText + " | " + WeightVolumeText + " | " + QuantityNumber);
                 GeneratedSKU.setText("SKU: " + (SKUCategory.toString().toUpperCase()) + "/" + (SKUItem.toString().toUpperCase()) + "-" + FixedFourDigitSKU);

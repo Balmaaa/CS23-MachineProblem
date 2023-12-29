@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.InventoryTableController">
-    <Rectangle arcHeight="5.0" arcWidth="5.0" height="52.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" stroke="#5c9bff" strokeType="INSIDE" width="750.0" />
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="3.0" prefHeight="46.0" prefWidth="246.0" text="Item Inventory" textAlignment="CENTER" textFill="WHITE">
         <font>
             <Font name="Century Gothic Bold" size="30.0" />
@@ -24,5 +24,8 @@
          <TableColumn fx:id="QuantityColumn" prefWidth="116.0" text="Quantity" />
          <TableColumn fx:id="DescriptionColumn" prefWidth="135.0" text="Description" />
      </columns>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy>
    </TableView>
 </AnchorPane>

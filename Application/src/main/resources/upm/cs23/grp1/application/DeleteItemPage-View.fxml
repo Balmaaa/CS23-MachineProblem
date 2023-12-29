@@ -22,7 +22,7 @@
                 </accelerator></MenuItem>
         </Menu>
     </MenuBar>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" height="52.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" layoutY="24.0" stroke="#5c9bff" strokeType="INSIDE" width="750.0" />
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="27.0" prefHeight="46.0" prefWidth="253.0" text="Delete Item Page" textAlignment="CENTER" textFill="WHITE">
         <font>
             <Font name="Century Gothic Bold" size="30.0" />

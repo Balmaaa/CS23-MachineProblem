@@ -2,3 +2,38 @@
 {
     -fx-alignment: BASELINE_CENTER;
 }
+
+#SKUColumn
+{
+    -fx-font-family: sans-serif;
+}
+
+#ItemColumn
+{
+    -fx-font-family: sans-serif;
+}
+
+#WeightVolumeColumn
+{
+    -fx-font-family: sans-serif;
+}
+
+#CategoryColumn
+{
+    -fx-font-family: sans-serif;
+}
+
+#BrandColumn
+{
+    -fx-font-family: sans-serif;
+}
+
+#QuantityColumn
+{
+    -fx-font-family: sans-serif;
+}
+
+#DescriptionColumn
+{
+    -fx-font-family: sans-serif;
+}
