@@ -53,6 +53,10 @@ public class InventoryTableController
         DescriptionColumn.setCellValueFactory(CellData -> CellData.getValue().DescriptionProperty());
     }
 
+    public void updateTable(ObservableList<InventoryData> newData) {
+        InventoryTable.setItems(newData);
+    }
+
     public TableView<InventoryData> getInventoryTable() {
         return InventoryTable;
     }
