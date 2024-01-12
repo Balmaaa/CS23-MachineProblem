@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" stylesheets="@DeleteItemPage-Design.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
     <MenuBar prefHeight="25.0" prefWidth="750.0">
         <Menu mnemonicParsing="false" text="Menu">
             <MenuItem mnemonicParsing="false" onAction="#MainPage" text="Main Page" />
@@ -28,8 +28,8 @@
             <Font name="Century Gothic Bold" size="30.0" />
         </font>
     </Label>
-   <TextField layoutX="75.0" layoutY="192.0" promptText="Item Name / SKU" />
-   <TextField layoutX="75.0" layoutY="244.0" promptText="Quantity" />
-   <Button layoutX="110.0" layoutY="292.0" mnemonicParsing="false" text="Delete Item" />
+   <TextField fx:id="itemNameTextField" layoutX="114.0" layoutY="216.0" promptText="Item Name / SKU" />
+   <Button layoutX="150.0" layoutY="263.0" mnemonicParsing="false" onAction="#DeleteItem" text="Delete Item" />
    <Line endX="103.0" endY="-9.0" layoutX="272.0" layoutY="85.0" startX="103.0" startY="415.0" />
+   <Text fx:id="deletionMessageText" layoutX="394.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="331.0" />
 </AnchorPane>

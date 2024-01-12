@@ -1,5 +1,7 @@
 package upm.cs23.grp1.application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -96,8 +98,11 @@ public class Controller_1
             Parent Root = Loader.load();
             Root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("InventoryPage-Design.css")).toExternalForm());
             MPApplication.GetInventoryStage().setScene(new Scene(Root));
+
             InventoryTableController InventoryController = Loader.getController();
             InventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
+            InventoryTable = InventoryController.getInventoryTable();
+
             MPApplication.GetInventoryStage().show();
         }
     }
@@ -192,6 +197,15 @@ public class Controller_1
 
    @FXML
    private TextArea AddDescription;
+
+   @FXML
+   private TextField itemNameTextField;
+
+   @FXML
+   private Text deletionMessageText;
+
+   @FXML
+   private TableView<InventoryData> InventoryTable;
 
     public static boolean Vowels(char C)
     {
@@ -291,8 +305,51 @@ public class Controller_1
     }
 
     //================================================================================================================//
-    //                                         DELETE ITEM PAGE FUNCTIONS                                             //
+    //                                          DELETE ITEM PAGE FUNCTIONS                                               //
     //================================================================================================================//
+    @FXML
+    private void DeleteItem(ActionEvent event) {
+        String itemNameText = itemNameTextField.getText().trim().toUpperCase();
+
+        if (itemNameText.isEmpty()) {
+            deletionMessageText.setText("Please enter valid Item Name or SKU");
+            return;
+        }
+
+        int indexToRemove = -1;
+        for (int i = 0; i < ItemList.size(); i++) {
+            if (ItemList.get(i).equalsIgnoreCase(itemNameText) || SKUList.get(i).equalsIgnoreCase(itemNameText)) {
+                indexToRemove = i;
+                break;
+            }
+        }
+
+        if (indexToRemove != -1) {
+            SKUList.remove(indexToRemove);
+            ItemList.remove(indexToRemove);
+            WeightVolumeList.remove(indexToRemove);
+            CategoryList.remove(indexToRemove);
+            BrandList.remove(indexToRemove);
+            QuantityList.remove(indexToRemove);
+            DescriptionList.remove(indexToRemove);
+
+            deletionMessageText.setText("Item '" + itemNameText + "' successfully deleted.");
+            updateInventoryTable();
+
+        } else {
+            deletionMessageText.setText("The entered item was not found in this inventory!");
+        }
+    }
+
+    private void updateInventoryTable() {
+        ObservableList<InventoryData> data = FXCollections.observableArrayList();
+
+        for (int i = 0; i < SKUList.size(); i++) {
+            data.add(new InventoryData(SKUList.get(i), ItemList.get(i), WeightVolumeList.get(i), CategoryList.get(i), BrandList.get(i), QuantityList.get(i), DescriptionList.get(i)));
+        }
+        InventoryTable.setItems(data);
+    }
+
 
 
 
@@ -361,13 +418,13 @@ public class Controller_1
         }
     }
 
-    private final ArrayList<String> SKUList = new ArrayList<>();
-    private final ArrayList<String> ItemList = new ArrayList<>();
-    private final ArrayList<String> WeightVolumeList = new ArrayList<>();
-    private final ArrayList<String> CategoryList = new ArrayList<>();
-    private final ArrayList<String> BrandList = new ArrayList<>();
-    private final ArrayList<String> QuantityList = new ArrayList<>();
-    private final ArrayList<String> DescriptionList = new ArrayList<>();
+    private static final ArrayList<String> SKUList = new ArrayList<>();
+    private static final ArrayList<String> ItemList = new ArrayList<>();
+    private static final ArrayList<String> WeightVolumeList = new ArrayList<>();
+    private static final ArrayList<String> CategoryList = new ArrayList<>();
+    private static final ArrayList<String> BrandList = new ArrayList<>();
+    private static final ArrayList<String> QuantityList = new ArrayList<>();
+    private static final ArrayList<String> DescriptionList = new ArrayList<>();
 
     public void AddSKU(String SKU_NewData)
     {

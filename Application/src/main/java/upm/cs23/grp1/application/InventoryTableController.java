@@ -52,4 +52,8 @@ public class InventoryTableController
         QuantityColumn.setCellValueFactory(CellData -> CellData.getValue().QuantityProperty());
         DescriptionColumn.setCellValueFactory(CellData -> CellData.getValue().DescriptionProperty());
     }
+
+    public TableView<InventoryData> getInventoryTable() {
+        return InventoryTable;
+    }
 }
