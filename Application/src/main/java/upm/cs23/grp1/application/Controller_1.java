@@ -300,6 +300,7 @@ public class Controller_1
                 GeneratedSKU.setText("");
                 ClearInputFields();
             }
+            updateInventoryTable();
         }
     }
 
@@ -357,15 +358,15 @@ public class Controller_1
     //================================================================================================================//
 
     public void ConsumeItemStock() {
-        String sku = SKUStock.getText();
+        String skuInput = SKUStock.getText().replaceAll("[\\/-]", ""); // Remove '/' and '-' from SKU
         String consumeQuantityInput = SKUStockQuant.getText();
 
-        if (sku.isEmpty() || consumeQuantityInput.isEmpty()) {
+        if (skuInput.isEmpty() || consumeQuantityInput.isEmpty()) {
             System.out.println("Please enter both SKU and quantity.");
             return;
         }
 
-        int index = SKUList.indexOf(sku);
+        int index = findSKUIndex(skuInput);
         if (index != -1) {
             try {
                 int consumeQuantityValue = Integer.parseInt(consumeQuantityInput);
@@ -373,30 +374,31 @@ public class Controller_1
 
                 if (currentQuantity >= consumeQuantityValue) {
                     QuantityList.set(index, String.valueOf(currentQuantity - consumeQuantityValue));
-                    ConsumeItemStock.setText(consumeQuantityValue + " units of SKU " + sku + " consumed.");
+                    ConsumeItemStock.setText(consumeQuantityValue + " units of SKU " + SKUList.get(index) + " consumed.");
                 } else {
-                    ConsumeItemStock.setText("Not enough stock for SKU " + sku);
+                    ConsumeItemStock.setText("Not enough stock for SKU " + SKUList.get(index));
                 }
             } catch (NumberFormatException e) {
                 ConsumeItemStock.setText("Invalid quantity format.");
             }
         } else {
-            ConsumeItemStock.setText("Item with SKU " + sku + " not found.");
+            ConsumeItemStock.setText("Item with SKU " + skuInput + " not found.");
         }
         updateInventoryTable();
         ClearInputFields();
     }
 
+
     public void UpdateItemStock() {
-        String sku = SKUStock.getText();
+        String skuInput = SKUStock.getText().replaceAll("[\\/-]", ""); // Remove '/' and '-' from SKU
         String newQuantityInput = SKUStockQuant.getText();
 
-        if (sku.isEmpty() || newQuantityInput.isEmpty()) {
+        if (skuInput.isEmpty() || newQuantityInput.isEmpty()) {
             UpdateItemStock.setText("Please enter both SKU and new quantity.");
             return;
         }
 
-        int index = SKUList.indexOf(sku);
+        int index = findSKUIndex(skuInput);
         if (index != -1) {
             try {
                 int currentQuantity = Integer.parseInt(QuantityList.get(index));
@@ -404,15 +406,25 @@ public class Controller_1
 
                 QuantityList.set(index, String.valueOf(currentQuantity + newQuantityValue));
 
-                UpdateItemStock.setText(newQuantityValue + " units added to SKU " + sku + ". New stock: " + QuantityList.get(index));
+                UpdateItemStock.setText(newQuantityValue + " units added to SKU " + SKUList.get(index) + ". New stock: " + QuantityList.get(index));
             } catch (NumberFormatException e) {
                 UpdateItemStock.setText("Invalid quantity format.");
             }
         } else {
-            UpdateItemStock.setText("Item with SKU " + sku + " not found.");
+            UpdateItemStock.setText("Item with SKU " + skuInput + " not found.");
         }
         updateInventoryTable();
         ClearInputFields();
+    }
+
+    // Helper method to find SKU index after removing '/' and '-'
+    private int findSKUIndex(String skuInput) {
+        for (int i = 0; i < SKUList.size(); i++) {
+            if (SKUList.get(i).replaceAll("[\\/-]", "").equalsIgnoreCase(skuInput)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     private static final ArrayList<String> SKUList = new ArrayList<>();
