@@ -78,9 +78,9 @@ public class MPApplication extends Application
         InventoryStage = new Stage();
         InventoryStage.getIcons().add(new Image("https://pngimg.com/d/chef_PNG134.png"));
         InventoryStage.setTitle("Restaurant Inventory - BALMACEDA");
-        InventoryStage.setAlwaysOnTop(false);
+        InventoryStage.setAlwaysOnTop(true);
         InventoryStage.setResizable(false);
-        InventoryStage.initModality(Modality.NONE);
+        InventoryStage.initModality(Modality.APPLICATION_MODAL);
     }
 
     public static void main(String[] args)
