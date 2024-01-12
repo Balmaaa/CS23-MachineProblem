@@ -348,7 +348,6 @@ public class Controller_1
                 int currentQuantity = Integer.parseInt(QuantityList.get(index));
                 int newQuantityValue = Integer.parseInt(newQuantityInput);
 
-                // Add the new quantity to the current quantity in the data structures
                 QuantityList.set(index, String.valueOf(currentQuantity + newQuantityValue));
 
                 // You may want to update any other relevant information here
