@@ -12,8 +12,8 @@
             <Font name="Century Gothic Bold" size="30.0" />
         </font>
     </Label>
-   <Button layoutX="164.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Import CSV" />
-   <Button layoutX="400.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Export CSV" />
+   <Button layoutX="164.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Import CSV" onAction="#importToCSV"/>
+   <Button layoutX="400.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Export CSV" onAction="#exportToCSV"/>
    <TableView fx:id="InventoryTable" layoutX="13.0" layoutY="57.0" prefHeight="396.0" prefWidth="725.0">
      <columns>
        <TableColumn fx:id="SKUColumn" prefWidth="94.0" text="SKU" />
