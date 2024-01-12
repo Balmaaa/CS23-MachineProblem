@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.InventoryTableController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" stroke="#5c9bff" strokeType="INSIDE" width="750.0" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="3.0" prefHeight="46.0" prefWidth="246.0" text="Item Inventory" textAlignment="CENTER" textFill="WHITE">
+        <font>
+            <Font name="Century Gothic Bold" size="30.0" />
+        </font>
+    </Label>
+   <Button layoutX="164.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Import CSV" />
+   <Button layoutX="400.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Export CSV" onAction="#exportToCSV"/>
+   <TableView fx:id="InventoryTable" layoutX="13.0" layoutY="57.0" prefHeight="396.0" prefWidth="725.0">
+     <columns>
+       <TableColumn fx:id="SKUColumn" prefWidth="94.0" text="SKU" />
+       <TableColumn fx:id="ItemColumn" prefWidth="101.0" text="Item" />
+         <TableColumn fx:id="WeightVolumeColumn" prefWidth="112.0" text="Weight/Volume" />
+         <TableColumn fx:id="CategoryColumn" prefWidth="91.0" text="Category" />
+         <TableColumn fx:id="BrandColumn" prefWidth="75.0" text="Brand" />
+         <TableColumn fx:id="QuantityColumn" prefWidth="116.0" text="Quantity" />
+         <TableColumn fx:id="DescriptionColumn" prefWidth="135.0" text="Description" />
+     </columns>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy>
+   </TableView>
+</AnchorPane>
