@@ -373,11 +373,7 @@ public class Controller_1
                 int currentQuantity = Integer.parseInt(QuantityList.get(index));
 
                 if (currentQuantity >= consumeQuantityValue) {
-                    // Consume the quantity in the data structures
                     QuantityList.set(index, String.valueOf(currentQuantity - consumeQuantityValue));
-
-                    // You may want to update any other relevant information here
-
                     ConsumeItemStock.setText(consumeQuantityValue + " units of SKU " + sku + " consumed.");
                 } else {
                     ConsumeItemStock.setText("Not enough stock for SKU " + sku);
@@ -406,8 +402,6 @@ public class Controller_1
                 int newQuantityValue = Integer.parseInt(newQuantityInput);
 
                 QuantityList.set(index, String.valueOf(currentQuantity + newQuantityValue));
-
-                // You may want to update any other relevant information here
 
                 UpdateItemStock.setText(newQuantityValue + " units added to SKU " + sku + ". New stock: " + QuantityList.get(index));
             } catch (NumberFormatException e) {
