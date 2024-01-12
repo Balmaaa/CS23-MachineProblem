@@ -388,7 +388,6 @@ public class Controller_1
         ClearInputFields();
     }
 
-
     public void UpdateItemStock() {
         String skuInput = SKUStock.getText().replaceAll("[\\/-]", ""); // Remove '/' and '-' from SKU
         String newQuantityInput = SKUStockQuant.getText();
@@ -417,10 +416,11 @@ public class Controller_1
         ClearInputFields();
     }
 
-    // Helper method to find SKU index after removing '/' and '-'
+    // Helper method to find SKU index with or without '/' and '-'
     private int findSKUIndex(String skuInput) {
         for (int i = 0; i < SKUList.size(); i++) {
-            if (SKUList.get(i).replaceAll("[\\/-]", "").equalsIgnoreCase(skuInput)) {
+            String currentSKU = SKUList.get(i).replaceAll("[\\/-]", "");
+            if (currentSKU.equalsIgnoreCase(skuInput)) {
                 return i;
             }
         }
