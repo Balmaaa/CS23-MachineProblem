@@ -2,10 +2,16 @@ package upm.cs23.grp1.application;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.FileChooser;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class InventoryTableController
@@ -59,5 +65,36 @@ public class InventoryTableController
 
     public TableView<InventoryData> getInventoryTable() {
         return InventoryTable;
+    }
+
+    public void exportToCSV(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save CSV File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File file = fileChooser.showSaveDialog(InventoryTable.getScene().getWindow());
+
+        if (file != null) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                // Write CSV header
+                writer.write("SKU,Item,Weight/Volume,Category,Brand,Quantity,Description");
+                writer.newLine();
+
+                // Write data rows
+                for (InventoryData item : InventoryTable.getItems()) {
+                    writer.write(String.format("%s,%s,%s,%s,%s,%s,%s",
+                            item.getSKU(), item.getItemName(), item.getWeightVolume(),
+                            item.getCategory(), item.getBrand(), item.getQuantity(), item.getDescription()));
+                    writer.newLine();
+                }
+
+                writer.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("IOException occured");
+            }
+        }
+    }
+
+    public void importToCSV(ActionEvent actionEvent) {
     }
 }

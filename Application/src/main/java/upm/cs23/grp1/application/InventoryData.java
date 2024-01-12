@@ -31,4 +31,18 @@ public class InventoryData
     public StringProperty BrandProperty() {return Brand;}
     public StringProperty QuantityProperty() {return Quantity;}
     public StringProperty DescriptionProperty() {return Description;}
+
+    public String getSKU() {return SKU.get();}
+
+    public String getItemName() {return ItemName.get();}
+
+    public String getWeightVolume() {return WeightVolume.get();}
+
+    public String getCategory() {return Category.get();}
+
+    public String getBrand() {return Brand.get();}
+
+    public String getQuantity() {return Quantity.get();}
+
+    public String getDescription() {return Description.get();}
 }
