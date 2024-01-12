@@ -22,6 +22,7 @@ public class Controller_1
 {
     private Stage Stage;
     private Scene Scene;
+    private static InventoryTableController inventoryController;
 
     //================================================================================================================//
     //                                            PAGE TRANSITION FUNCTIONS                                           //
@@ -87,23 +88,25 @@ public class Controller_1
         }
     }
 
-    public void InventoryPage(ActionEvent Event) throws IOException
-    {
+    public void InventoryPage(ActionEvent Event) throws IOException {
         MenuItem MenuItem = (MenuItem) Event.getSource();
         String MenuItemText = MenuItem.getText();
 
-        if("View Inventory".equals(MenuItemText))
-        {
-            FXMLLoader Loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
-            Parent Root = Loader.load();
-            Root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("InventoryPage-Design.css")).toExternalForm());
-            MPApplication.GetInventoryStage().setScene(new Scene(Root));
+        if ("View Inventory".equals(MenuItemText)) {
+            try {
+                FXMLLoader Loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
+                Parent Root = Loader.load();
+                Root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("InventoryPage-Design.css")).toExternalForm());
 
-            InventoryTableController InventoryController = Loader.getController();
-            InventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
-            InventoryTable = InventoryController.getInventoryTable();
+                MPApplication.GetInventoryStage().setScene(new Scene(Root));
 
-            MPApplication.GetInventoryStage().show();
+                inventoryController = Loader.getController();
+                inventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
+
+                MPApplication.GetInventoryStage().show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -199,13 +202,7 @@ public class Controller_1
    private TextArea AddDescription;
 
    @FXML
-   private TextField itemNameTextField;
-
-   @FXML
    private Text deletionMessageText;
-
-   @FXML
-   private TableView<InventoryData> InventoryTable;
 
     public static boolean Vowels(char C)
     {
@@ -213,15 +210,27 @@ public class Controller_1
         return C == 'a' || C == 'e' || C == 'i' || C == 'o' || C == 'u';
     }
 
-    public void ClearInputFields()
-    {
-        ItemName.clear();
-        Category.clear();
-        Brand.clear();
-        WeightVolume.clear();
-        Quantity.clear();
-        AddDescription.clear();
+    public void ClearInputFields() {
+        if (ItemName != null) {
+            ItemName.clear();
+        }
+        if (Category != null) {
+            Category.clear();
+        }
+        if (Brand != null) {
+            Brand.clear();
+        }
+        if (WeightVolume != null) {
+            WeightVolume.clear();
+        }
+        if (Quantity != null) {
+            Quantity.clear();
+        }
+        if (AddDescription != null) {
+            AddDescription.clear();
+        }
     }
+
 
     @FXML
     private void AddItemToDisplay()
@@ -309,7 +318,7 @@ public class Controller_1
     //================================================================================================================//
     @FXML
     private void DeleteItem(){
-        String itemNameText = itemNameTextField.getText().trim().toUpperCase();
+        String itemNameText = ItemName.getText().trim().toUpperCase();
 
         if (itemNameText.isEmpty()) {
             deletionMessageText.setText("Please enter valid Item Name or SKU");
@@ -334,10 +343,10 @@ public class Controller_1
             DescriptionList.remove(indexToRemove);
 
             deletionMessageText.setText("Item '" + itemNameText + "' successfully deleted.");
+            updateInventoryTable();
         } else {
             deletionMessageText.setText("The entered item was not found in this inventory!");
         }
-        updateInventoryTable();
         ClearInputFields();
     }
 
@@ -347,8 +356,13 @@ public class Controller_1
         for (int i = 0; i < SKUList.size(); i++) {
             data.add(new InventoryData(SKUList.get(i), ItemList.get(i), WeightVolumeList.get(i), CategoryList.get(i), BrandList.get(i), QuantityList.get(i), DescriptionList.get(i)));
         }
-        InventoryTable.setItems(data);
+
+        if (inventoryController != null) {
+            inventoryController.updateTable(data);
+        }
     }
+
+
 
 
 
