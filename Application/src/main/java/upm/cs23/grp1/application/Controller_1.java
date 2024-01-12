@@ -308,7 +308,7 @@ public class Controller_1
     //                                          DELETE ITEM PAGE FUNCTIONS                                               //
     //================================================================================================================//
     @FXML
-    private void DeleteItem(ActionEvent event) {
+    private void DeleteItem(){
         String itemNameText = itemNameTextField.getText().trim().toUpperCase();
 
         if (itemNameText.isEmpty()) {
@@ -341,27 +341,13 @@ public class Controller_1
         }
     }
 
-    private InventoryTableController getInventoryController() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
-        try {
-            Parent root = loader.load();
-            return loader.getController();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     private void updateInventoryTable() {
         ObservableList<InventoryData> data = FXCollections.observableArrayList();
 
         for (int i = 0; i < SKUList.size(); i++) {
             data.add(new InventoryData(SKUList.get(i), ItemList.get(i), WeightVolumeList.get(i), CategoryList.get(i), BrandList.get(i), QuantityList.get(i), DescriptionList.get(i)));
         }
-        InventoryTableController inventoryTableController = getInventoryController();
-        if (inventoryTableController != null) {
-            inventoryTableController.updateTable(data);
-        }
+        InventoryTable.setItems(data);
     }
 
 

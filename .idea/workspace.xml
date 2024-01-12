@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Cleanup">
+    <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Fixed NullPointerException">
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/InventoryTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/InventoryTableController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701885842829</updated>
       <workItem from="1705069719729" duration="108000" />
-      <workItem from="1705069844399" duration="7057000" />
+      <workItem from="1705069844399" duration="8354000" />
     </task>
     <task id="LOCAL-00001" summary="Completed DeleteItem() method;&#10;Fixed inventory data issue;">
       <option name="closed" value="true" />
@@ -71,7 +70,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705076369900</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed NullPointerException">
+      <option name="closed" value="true" />
+      <created>1705077041809</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705077041809</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,7 +98,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Completed DeleteItem() method;&#10;Fixed inventory data issue;" />
     <MESSAGE value="Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
+    <MESSAGE value="Fixed NullPointerException" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed NullPointerException" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
