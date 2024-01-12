@@ -301,8 +301,6 @@ public class Controller_1
                 ClearInputFields();
             }
         }
-        updateInventoryTable();
-        ClearInputFields();
     }
 
     //================================================================================================================//
@@ -335,8 +333,6 @@ public class Controller_1
             DescriptionList.remove(indexToRemove);
 
             deletionMessageText.setText("Item '" + itemNameText + "' successfully deleted.");
-            updateInventoryTable();
-
         } else {
             deletionMessageText.setText("The entered item was not found in this inventory!");
         }
