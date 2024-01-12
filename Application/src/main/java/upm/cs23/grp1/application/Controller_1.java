@@ -361,7 +361,6 @@ public class Controller_1
         }
     }
 
-
     private final ArrayList<String> SKUList = new ArrayList<>();
     private final ArrayList<String> ItemList = new ArrayList<>();
     private final ArrayList<String> WeightVolumeList = new ArrayList<>();

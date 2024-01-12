@@ -25,8 +25,11 @@ public class MPApplication extends Application
         PrimaryStage.getIcons().add(new Image("https://pngimg.com/d/chef_PNG134.png"));
         PrimaryStage.setTitle("Restaurant Inventory System - GRP 5");
         PrimaryStage.setScene(Scene);
+        PrimaryStage.setOnCloseRequest(Event -> {
+            Event.consume();
+            ExitConfirmationPage(PrimaryStage);
+        });
         PrimaryStage.setResizable(false);
-        PrimaryStage.setOnCloseRequest(Event -> ExitConfirmationPage(PrimaryStage));
         PrimaryStage.show();
         InventoryStage();
     }
