@@ -301,6 +301,7 @@ public class Controller_1
                 ClearInputFields();
             }
         }
+        updateInventoryTable();
         ClearInputFields();
     }
 
@@ -339,6 +340,8 @@ public class Controller_1
         } else {
             deletionMessageText.setText("The entered item was not found in this inventory!");
         }
+        updateInventoryTable();
+        ClearInputFields();
     }
 
     private void updateInventoryTable() {
@@ -384,6 +387,8 @@ public class Controller_1
         } else {
             ConsumeItemStock.setText("Item with SKU " + sku + " not found.");
         }
+        updateInventoryTable();
+        ClearInputFields();
     }
 
     public void UpdateItemStock() {
@@ -410,6 +415,8 @@ public class Controller_1
         } else {
             UpdateItemStock.setText("Item with SKU " + sku + " not found.");
         }
+        updateInventoryTable();
+        ClearInputFields();
     }
 
     private static final ArrayList<String> SKUList = new ArrayList<>();
