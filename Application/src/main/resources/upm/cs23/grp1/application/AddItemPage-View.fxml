@@ -50,10 +50,10 @@
       </font>
    </Text>
    <Text layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----------------------------------------------------------------------------------------------------------------------------------------------------------" textAlignment="CENTER" wrappingWidth="750.0" />
-   <TextField layoutX="51.0" layoutY="326.0" prefHeight="27.0" prefWidth="165.0" promptText="Item Name / SKU" />
-   <TextField layoutX="51.0" layoutY="368.0" prefHeight="27.0" prefWidth="165.0" promptText="Item Quantity" />
-   <Button fx:id="ConsumeItemButton" layoutX="64.0" layoutY="407.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Consume Item Stock" />
-   <Button fx:id="UpdateItemButton" layoutX="64.0" layoutY="449.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="139.0" text="Update Item Stock" />
+   <TextField fx:id="SKUStock" layoutX="51.0" layoutY="326.0" prefHeight="27.0" prefWidth="165.0" promptText="Item SKU" />
+   <TextField fx:id="SKUStockQuant" layoutX="51.0" layoutY="368.0" prefHeight="27.0" prefWidth="165.0" promptText="Item Quantity" />
+   <Button fx:id="ConsumeItemButton" layoutX="64.0" layoutY="407.0" mnemonicParsing="false" onAction="#ConsumeItemStock" prefHeight="30.0" prefWidth="139.0" text="Consume Item Stock" />
+   <Button fx:id="UpdateItemButton" layoutX="64.0" layoutY="449.0" mnemonicParsing="false" onAction="#UpdateItemStock" prefHeight="30.0" prefWidth="139.0" text="Update Item Stock" />
    <Text fx:id="ConsumeItemStock" layoutX="262.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="360.0">
       <font>
          <Font name="Arial" size="15.0" />

@@ -184,8 +184,14 @@ public class Controller_1
     @FXML
     private TextField Quantity;
 
-    @FXML
-    private TextArea AddDescription;
+   @FXML
+   private TextField SKUStock;
+
+   @FXML
+   private TextField SKUStockQuant;
+
+   @FXML
+   private TextArea AddDescription;
 
     public static boolean Vowels(char C)
     {
@@ -293,6 +299,69 @@ public class Controller_1
     //================================================================================================================//
     //                                           INVENTORY PAGE FUNCTIONS                                             //
     //================================================================================================================//
+
+    public void ConsumeItemStock() {
+        String sku = SKUStock.getText();
+        String consumeQuantityInput = SKUStockQuant.getText();
+
+        if (sku.isEmpty() || consumeQuantityInput.isEmpty()) {
+            System.out.println("Please enter both SKU and quantity.");
+            return;
+        }
+
+        int index = SKUList.indexOf(sku);
+        if (index != -1) {
+            try {
+                int consumeQuantityValue = Integer.parseInt(consumeQuantityInput);
+                int currentQuantity = Integer.parseInt(QuantityList.get(index));
+
+                if (currentQuantity >= consumeQuantityValue) {
+                    // Consume the quantity in the data structures
+                    QuantityList.set(index, String.valueOf(currentQuantity - consumeQuantityValue));
+
+                    // You may want to update any other relevant information here
+
+                    ConsumeItemStock.setText(consumeQuantityValue + " units of SKU " + sku + " consumed.");
+                } else {
+                    ConsumeItemStock.setText("Not enough stock for SKU " + sku);
+                }
+            } catch (NumberFormatException e) {
+                ConsumeItemStock.setText("Invalid quantity format.");
+            }
+        } else {
+            ConsumeItemStock.setText("Item with SKU " + sku + " not found.");
+        }
+    }
+
+    public void UpdateItemStock() {
+        String sku = SKUStock.getText();
+        String newQuantityInput = SKUStockQuant.getText();
+
+        if (sku.isEmpty() || newQuantityInput.isEmpty()) {
+            UpdateItemStock.setText("Please enter both SKU and new quantity.");
+            return;
+        }
+
+        int index = SKUList.indexOf(sku);
+        if (index != -1) {
+            try {
+                int currentQuantity = Integer.parseInt(QuantityList.get(index));
+                int newQuantityValue = Integer.parseInt(newQuantityInput);
+
+                // Add the new quantity to the current quantity in the data structures
+                QuantityList.set(index, String.valueOf(currentQuantity + newQuantityValue));
+
+                // You may want to update any other relevant information here
+
+                UpdateItemStock.setText(newQuantityValue + " units added to SKU " + sku + ". New stock: " + QuantityList.get(index));
+            } catch (NumberFormatException e) {
+                UpdateItemStock.setText("Invalid quantity format.");
+            }
+        } else {
+            UpdateItemStock.setText("Item with SKU " + sku + " not found.");
+        }
+    }
+
 
     private final ArrayList<String> SKUList = new ArrayList<>();
     private final ArrayList<String> ItemList = new ArrayList<>();
