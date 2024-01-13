@@ -47,6 +47,6 @@
          <Font name="Arial" size="15.0" />
       </font>
    </Text>
-   <Button layoutX="541.0" layoutY="440.0" mnemonicParsing="false" onAction="#MainPage" prefHeight="25.0" prefWidth="158.0" text="Return to Main Menu" />
+   <Button fx:id="ReturnToMainMenu" layoutX="548.0" layoutY="440.0" mnemonicParsing="false" onAction="#MainPage" prefHeight="30.0" prefWidth="151.0" text="Return to Main Menu" />
    <Line endX="649.2928466796875" layoutX="102.0" layoutY="289.0" startX="-100.0" strokeWidth="0.5" />
 </AnchorPane>

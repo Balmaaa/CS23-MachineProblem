@@ -64,7 +64,7 @@ public class Controller_1
     }
 
     public void MainPage(ActionEvent event) throws IOException {
-        handlePageRequest(event,"Main-View.fxml", null);
+        handlePageRequest(event,"Main-View.fxml", "Main-Design.css");
     }
 
     public void AddItemPage(ActionEvent event) throws IOException {
@@ -73,7 +73,7 @@ public class Controller_1
 
     public void DeleteItemPage(ActionEvent event) throws IOException
     {
-        handlePageRequest(event,  "DeleteItemPage-View.fxml", null);
+        handlePageRequest(event,  "DeleteItemPage-View.fxml", "DeleteItemPage-Design.css");
     }
 
     public void InventoryPage(ActionEvent event) throws IOException

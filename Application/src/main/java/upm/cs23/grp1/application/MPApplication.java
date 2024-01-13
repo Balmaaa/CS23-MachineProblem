@@ -22,6 +22,7 @@ public class MPApplication extends Application
     {
         Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main-View.fxml")));
         Scene Scene = new Scene(Root);
+        Scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("Main-Design.css")).toExternalForm());
         PrimaryStage.getIcons().add(new Image("https://pngimg.com/d/chef_PNG134.png"));
         PrimaryStage.setTitle("Restaurant Inventory System - GRP 5");
         PrimaryStage.setScene(Scene);
