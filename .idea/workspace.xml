@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Fixed main-view button errors">
-      <change afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/BG.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/BG.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/MPApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/MPApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/AddItemPage-Design.css" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/AddItemPage-Design.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/AddItemPage-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/AddItemPage-View.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/DeleteItemPage-Design.css" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/DeleteItemPage-Design.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/InventoryPage-Design.css" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/InventoryPage-Design.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/Main-Design.css" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/Main-Design.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/Main-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/Main-View.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +76,7 @@
       <workItem from="1705111194895" duration="177000" />
       <workItem from="1705111385520" duration="590000" />
       <workItem from="1705111989549" duration="421000" />
+      <workItem from="1705119127743" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="Completed DeleteItem() method;&#10;Fixed inventory data issue;">
       <option name="closed" value="true" />

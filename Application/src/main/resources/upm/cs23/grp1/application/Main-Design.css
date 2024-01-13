@@ -4,3 +4,97 @@
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
 }
+
+.text-field
+{
+    -fx-border-width: 1px;
+    -fx-border-radius: 1px;
+    -fx-border-style: solid;
+    -fx-border-color: 'black';
+    -fx-font-family: sans-serif;
+}
+
+.text-area
+{
+    -fx-border-width: 1px;
+    -fx-border-radius: 1px;
+    -fx-border-style: solid;
+    -fx-border-color: 'black';
+    -fx-font-family: sans-serif;
+}
+
+#AddPageButton
+{
+    -fx-font-family: sans-serif;
+}
+
+#AddPageButton:hover
+{
+    -fx-padding: 5px;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-background-color: 'white';
+    -fx-border-radius: 6px;
+    transition-duration: 0.4s;
+    -fx-background-color: #87CEEB;
+    -fx-font-weight: bold;
+
+}
+
+#DeletePageButton
+{
+    -fx-font-family: sans-serif;
+}
+
+#DeletePageButton:hover
+{
+    -fx-padding: 5px;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-background-color: 'white';
+    -fx-border-radius: 6px;
+    transition-duration: 0.4s;
+    -fx-background-color: #87CEEB;
+    -fx-font-weight: bold;
+    -fx-font-family: sans-serif;
+}
+
+#InventoryButton
+{
+    -fx-font-family: sans-serif;
+}
+
+#InventoryButton:hover
+{
+    -fx-padding: 5px;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-background-color: 'white';
+    -fx-border-radius: 6px;
+    transition-duration: 0.4s;
+    -fx-background-color: #87CEEB;
+    -fx-font-weight: bold;
+    -fx-font-family: sans-serif;
+}
+
+#ImportButton
+{
+    -fx-font-family: sans-serif;
+}
+
+#ImportButton:hover
+{
+    -fx-padding: 5px;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-background-color: 'white';
+    -fx-border-radius: 6px;
+    transition-duration: 0.4s;
+    -fx-background-color: #87CEEB;
+    -fx-font-weight: bold;
+    -fx-font-family: sans-serif;
+}
