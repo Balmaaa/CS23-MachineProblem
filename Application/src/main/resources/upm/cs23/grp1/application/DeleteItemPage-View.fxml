@@ -1,35 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.input.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" stylesheets="@DeleteItemPage-Design.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
-    <MenuBar prefHeight="25.0" prefWidth="750.0">
-        <Menu mnemonicParsing="false" text="Menu">
-            <MenuItem mnemonicParsing="false" onAction="#MainPage" text="Main Page" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" onAction="#AddItemPage" text="Add Item Page" />
-            <MenuItem mnemonicParsing="false" onAction="#DeleteItemPage" text="Delete Item Page" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" onAction="#InventoryPage" text="View Inventory" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" onAction="#ExitConfirmationPage" text="Exit Application">
-                <accelerator>
-                    <KeyCodeCombination alt="DOWN" code="E" control="UP" meta="UP" shift="UP" shortcut="UP" />
-                </accelerator></MenuItem>
-        </Menu>
-    </MenuBar>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" layoutY="24.0" stroke="#5c9bff" strokeType="INSIDE" width="750.0" />
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="27.0" prefHeight="46.0" prefWidth="253.0" text="Delete Item Page" textAlignment="CENTER" textFill="WHITE">
+<AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="366.0" stylesheets="@DeleteItemPage-Design.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" layoutY="24.0" stroke="#5c9bff" strokeType="INSIDE" width="365.5" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="27.0" prefHeight="46.0" prefWidth="253.0" text="Delete Item Page" textAlignment="CENTER" textFill="WHITE">
         <font>
             <Font name="Century Gothic Bold" size="30.0" />
         </font>
     </Label>
-   <TextField fx:id="ItemName" layoutX="57.0" layoutY="263.0" promptText="Item Name / SKU" />
-   <Button layoutX="230.0" layoutY="263.0" mnemonicParsing="false" onAction="#DeleteItem" text="Delete Item" />
-   <Line endX="103.0" endY="-9.0" layoutX="272.0" layoutY="85.0" startX="103.0" startY="415.0" />
-   <Text fx:id="deletionMessageText" layoutX="22.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="331.0" />
+   <TextField fx:id="ItemName" alignment="CENTER" layoutX="84.0" layoutY="204.0" prefHeight="72.0" prefWidth="197.0" promptText="Item Name / SKU">
+      <font>
+         <Font size="14.0" />
+      </font></TextField>
+   <Button layoutX="122.0" layoutY="299.0" mnemonicParsing="false" onAction="#DeleteItem" prefHeight="52.0" prefWidth="124.0" text="Delete Item" />
+   <Text fx:id="deletionMessageText" layoutX="22.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="331.0">
+      <font>
+         <Font size="14.0" />
+      </font></Text>
+   <Button layoutX="181.0" layoutY="435.0" mnemonicParsing="false" onAction="#MainPage" text="Return to Main Menu" />
 </AnchorPane>

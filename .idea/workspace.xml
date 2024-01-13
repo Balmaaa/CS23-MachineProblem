@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Fixed DeleteItem Page; Removed menu item for main page">
+    <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Fixed main-view button errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/AddItemPage-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/AddItemPage-View.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/DeleteItemPage-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/DeleteItemPage-View.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,9 @@
       <workItem from="1705069719729" duration="108000" />
       <workItem from="1705069844399" duration="8354000" />
       <workItem from="1705101300969" duration="7755000" />
+      <workItem from="1705111194895" duration="177000" />
+      <workItem from="1705111385520" duration="590000" />
+      <workItem from="1705111989549" duration="421000" />
     </task>
     <task id="LOCAL-00001" summary="Completed DeleteItem() method;&#10;Fixed inventory data issue;">
       <option name="closed" value="true" />
