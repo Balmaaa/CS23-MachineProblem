@@ -5,14 +5,15 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
-  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" layoutY="24.0" stroke="#5c9bff" strokeType="INSIDE" width="750.0" />
-  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="27.0" prefHeight="46.0" prefWidth="246.0" text="Main Page" textAlignment="CENTER" textFill="WHITE">
+<AnchorPane prefHeight="500.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upm.cs23.grp1.application.Controller_1">
+  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5c9bff" height="52.0" stroke="#5c9bff" strokeType="INSIDE" width="638.0" />
+  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="201.0" layoutY="3.0" prefHeight="46.0" prefWidth="246.0" text="Main Page" textAlignment="CENTER" textFill="WHITE">
     <font>
       <Font name="Century Gothic Bold" size="30.0" />
     </font>
   </Label>
-   <Button layoutX="98.0" layoutY="127.0" mnemonicParsing="false" onAction="#AddItemPage" prefHeight="154.0" prefWidth="162.0" text="add" />
-   <Button layoutX="300.0" layoutY="140.0" mnemonicParsing="false" onAction="#DeleteItemPage" text="delete" />
-   <Button layoutX="375.0" layoutY="140.0" mnemonicParsing="false" onAction="#InventoryPage" text="inventory" />
+   <Button layoutX="126.0" layoutY="184.0" mnemonicParsing="false" onAction="#InventoryPage" prefHeight="60.0" prefWidth="162.0" text="Inventory" />
+   <Button layoutX="126.0" layoutY="286.0" mnemonicParsing="false" onAction="#importToCSV" prefHeight="60.0" prefWidth="162.0" text="Import CSV" />
+   <Button layoutX="350.0" layoutY="184.0" mnemonicParsing="false" onAction="#AddItemPage" prefHeight="60.0" prefWidth="162.0" text="Add Item Page" />
+   <Button layoutX="350.0" layoutY="286.0" mnemonicParsing="false" onAction="#DeleteItemPage" prefHeight="60.0" prefWidth="162.0" text="Delete Item Page" />
 </AnchorPane>

@@ -9,9 +9,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -91,35 +95,37 @@ public class Controller_1
         }
     }
 
-    public void ExitConfirmationPage(ActionEvent Event)
+    public void importToCSV(ActionEvent actionEvent)
     {
-        Alert Alert = new Alert(javafx.scene.control.Alert.AlertType.WARNING);
-        Alert.setTitle("Exit Confirmation");
-        Alert.setHeaderText("You Will Be Exiting the Application");
-        Alert.setContentText("Do You Want To Export CSV Before Exiting?");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open CSV File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File file = fileChooser.showOpenDialog(new Stage());
 
-        ButtonType YesButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-        ButtonType NoButton = new ButtonType("No", ButtonBar.ButtonData.NO);
-        ButtonType CancelButton = new ButtonType("Cancel Exit", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-        Alert.getButtonTypes().setAll(YesButton, NoButton, CancelButton);
-
-        Optional<ButtonType> Result = Alert.showAndWait();
-        if(Result.isPresent())
+        if (file != null)
         {
-            if(Result.get().equals(YesButton))
+            try (BufferedReader reader = new BufferedReader(new FileReader(file)))
             {
-                System.out.println("Program Terminated");
-                Stage Stage = (Stage) ((Node) Event.getSource()).getScene().getWindow();
-                Stage.close();
+                String line;
+                reader.readLine();
+
+                ObservableList<InventoryData> importedData = FXCollections.observableArrayList();
+
+                while ((line = reader.readLine()) != null)
+                {
+                    String[] values = line.split(",");
+                    if (values.length == 7)
+                    { // Assuming there are 7 columns in your CSV
+                        InventoryData item = new InventoryData(values[0], values[1], values[2], values[3], values[4], values[5], values[6]);
+                        importedData.add(item);
+                    }
+                }
+                .getItems().addAll(importedData);
             }
-            else if(Result.get().equals(NoButton))
+            catch (IOException e)
             {
-                System.exit(0);
-            }
-            else if(Result.get().equals(CancelButton))
-            {
-                System.out.println("Exit Operation Cancelled");
+                e.printStackTrace();
+                System.out.println("IOException occurred");
             }
         }
     }
