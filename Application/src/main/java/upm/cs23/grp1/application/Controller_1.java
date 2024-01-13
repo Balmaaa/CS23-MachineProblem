@@ -102,42 +102,6 @@ public class Controller_1
         }
     }
 
-    public void importToCSV(ActionEvent actionEvent)
-    {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open CSV File");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-        File file = fileChooser.showOpenDialog(new Stage());
-
-        if (file != null)
-        {
-            try (BufferedReader reader = new BufferedReader(new FileReader(file)))
-            {
-                String line;
-                reader.readLine();
-
-                ObservableList<InventoryData> importedData = FXCollections.observableArrayList();
-
-                while ((line = reader.readLine()) != null)
-                {
-                    String[] values = line.split(",");
-                    if (values.length == 7)
-                    {
-                        InventoryData item = new InventoryData(values[0], values[1], values[2], values[3], values[4], values[5], values[6]);
-                        importedData.add(item);
-                    }
-                }
-                TableView<InventoryData> InventoryTable = new TableView<>();
-                InventoryTable.getItems().addAll(importedData);
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-                System.out.println("IOException occurred");
-            }
-        }
-    }
-
     /**
      * <p>The Add Item Page consists of multiple parts. The first notable part would be the initialization of FXML
      * elements, which include: Text, TextField, TextArea, Buttons, and etc. These elements are interconnected to one

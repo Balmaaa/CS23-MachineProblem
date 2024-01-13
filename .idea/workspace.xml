@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Fixed main-view button errors">
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/InventoryTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/InventoryTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/MPApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/MPApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
