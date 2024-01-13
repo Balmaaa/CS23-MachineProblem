@@ -229,6 +229,12 @@ public class Controller_1
         if (AddDescription != null) {
             AddDescription.clear();
         }
+        if (SKUStock != null) {
+            SKUStock.clear();
+        }
+        if (SKUStockQuant != null) {
+            SKUStockQuant.clear();
+        }
     }
 
 
@@ -429,7 +435,6 @@ public class Controller_1
         }
         updateInventoryTable();
         ClearInputFields();
-
     }
 
     // Helper method to find SKU index with or without '/' and '-'

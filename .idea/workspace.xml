@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Fixed NullPointerException and real-time updateTable()">
+    <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Fixed clear input fields">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/Main-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/upm/cs23/grp1/application/Main-View.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
       <updated>1701885842829</updated>
       <workItem from="1705069719729" duration="108000" />
       <workItem from="1705069844399" duration="8354000" />
-      <workItem from="1705101300969" duration="3041000" />
+      <workItem from="1705101300969" duration="3731000" />
     </task>
     <task id="LOCAL-00001" summary="Completed DeleteItem() method;&#10;Fixed inventory data issue;">
       <option name="closed" value="true" />
@@ -92,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705103899615</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed clear input fields">
+      <option name="closed" value="true" />
+      <created>1705104666184</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705104666184</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +123,8 @@
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Fixed NullPointerException" />
     <MESSAGE value="Fixed NullPointerException and real-time updateTable()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed NullPointerException and real-time updateTable()" />
+    <MESSAGE value="Fixed clear input fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed clear input fields" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
