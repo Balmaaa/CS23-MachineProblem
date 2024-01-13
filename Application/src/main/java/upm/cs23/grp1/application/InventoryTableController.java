@@ -4,14 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class InventoryTableController
@@ -96,5 +95,31 @@ public class InventoryTableController
     }
 
     public void importToCSV(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open CSV File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File file = fileChooser.showOpenDialog(new Stage());
+
+        if (file != null) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+                reader.readLine();
+
+                ObservableList<InventoryData> importedData = FXCollections.observableArrayList();
+
+                while ((line = reader.readLine()) != null) {
+                    String[] values = line.split(",");
+                    if (values.length == 7) { // Assuming there are 7 columns in your CSV
+                        InventoryData item = new InventoryData(values[0], values[1], values[2], values[3], values[4], values[5], values[6]);
+                        importedData.add(item);
+                    }
+                }
+
+                InventoryTable.getItems().addAll(importedData);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("IOException occurred");
+            }
+        }
     }
 }
