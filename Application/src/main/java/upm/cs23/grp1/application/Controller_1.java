@@ -226,61 +226,30 @@ public class Controller_1
 
 
     @FXML
-    private void AddItemToDisplay()
-    {
-        if(ItemName.getText().isEmpty() || Category.getText().isEmpty() || Brand.getText().isEmpty() ||
-                WeightVolume.getText().isEmpty() || Quantity.getText().isEmpty() || AddDescription.getText().isEmpty())
-        {
+    private void AddItemToDisplay() {
+        if (ItemName.getText().isEmpty() || Category.getText().isEmpty() || Brand.getText().isEmpty() ||
+                WeightVolume.getText().isEmpty() || Quantity.getText().isEmpty() || AddDescription.getText().isEmpty()) {
             ErrorMessage.setText("Fill In All Required Information");
             AddedItemOutput.setText("");
             GeneratedSKU.setText("");
             ClearInputFields();
-        }
-        else
-        {
+        } else {
             String ItemNameText = ItemName.getText();
             String CategoryText = Category.getText();
             String BrandText = Brand.getText();
             String WeightVolumeText = WeightVolume.getText();
             String DescriptionText = AddDescription.getText();
 
-            try
-            {
+            try {
                 int QuantityNumber = Integer.parseInt(Quantity.getText());
                 int SKUItemVal = (int) (Math.random() * (9999));
                 String FixedFourDigitSKU = String.format("%04d", SKUItemVal);
 
-                StringBuilder SKUCategory = new StringBuilder();
-                String SKUFix = CategoryText.toLowerCase().replace(" ", "");
-                int ConsonantCount = 0;
-                for (char C : SKUFix.toCharArray())
-                {
-                    if (ConsonantCount == 3)
-                    {
-                        break;
-                    }
-                    if (!Vowels(C))
-                    {
-                        SKUCategory.append(C);
-                        ConsonantCount++;
-                    }
-                }
+                // Generate SKU for Category
+                StringBuilder SKUCategory = generateSKU(CategoryText);
 
-                StringBuilder SKUItem = new StringBuilder();
-                String SKUFixItem = ItemNameText.toLowerCase().replace(" ", "");
-                int ConsonantCount_Item = 0;
-                for (char C : SKUFixItem.toCharArray())
-                {
-                    if (ConsonantCount_Item == 3)
-                    {
-                        break;
-                    }
-                    if (!Vowels(C))
-                    {
-                        SKUItem.append(C);
-                        ConsonantCount_Item++;
-                    }
-                }
+                // Generate SKU for ItemName
+                StringBuilder SKUItem = generateSKU(ItemNameText);
 
                 ErrorMessage.setText("");
                 AddedItemOutput.setText("Item: " + ItemNameText + " | " + CategoryText + " | " + BrandText + " | " + WeightVolumeText + " | " + QuantityNumber);
@@ -294,9 +263,7 @@ public class Controller_1
                 AddBrand(BrandText);
                 AddQuantity(String.valueOf(QuantityNumber));
                 AddDescription(DescriptionText);
-            }
-            catch(NumberFormatException E)
-            {
+            } catch (NumberFormatException E) {
                 ErrorMessage.setText("Quantity Must Be A Number");
                 AddedItemOutput.setText("");
                 GeneratedSKU.setText("");
@@ -306,6 +273,36 @@ public class Controller_1
             ClearInputFields();
         }
     }
+
+    private StringBuilder generateSKU(String input) {
+        StringBuilder SKU = new StringBuilder();
+        String SKUFix = input.toLowerCase().replace(" ", "");
+        int ConsonantCount = 0;
+
+        for (char C : SKUFix.toCharArray()) {
+            if (ConsonantCount == 3) {
+                break;
+            }
+            if (!Vowels(C)) {
+                SKU.append(C);
+                ConsonantCount++;
+            }
+        }
+
+        // Use vowels if the consonant count is less than 3
+        for (char C : SKUFix.toCharArray()) {
+            if (ConsonantCount == 3) {
+                break;
+            }
+            if (Vowels(C)) {
+                SKU.append(C);
+                ConsonantCount++;
+            }
+        }
+
+        return SKU;
+    }
+
 
     //================================================================================================================//
     //                                          DELETE ITEM PAGE FUNCTIONS                                               //
