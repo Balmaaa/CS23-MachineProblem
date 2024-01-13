@@ -310,6 +310,7 @@ public class Controller_1
                 ClearInputFields();
             }
             updateInventoryTable();
+            ClearInputFields();
         }
     }
 
@@ -428,6 +429,7 @@ public class Controller_1
         }
         updateInventoryTable();
         ClearInputFields();
+
     }
 
     // Helper method to find SKU index with or without '/' and '-'
