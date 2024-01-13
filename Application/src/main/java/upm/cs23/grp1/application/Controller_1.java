@@ -234,8 +234,7 @@ public class Controller_1
      */
     @FXML
     private void AddItemToDisplay() {
-        if (ItemName.getText().isEmpty() || Category.getText().isEmpty() || Brand.getText().isEmpty() ||
-                WeightVolume.getText().isEmpty() || Quantity.getText().isEmpty() || AddDescription.getText().isEmpty()) {
+        if (ItemName.getText().isEmpty() || Category.getText().isEmpty()) {
             ErrorMessage.setText("Fill In All Required Information");
             AddedItemOutput.setText("");
             GeneratedSKU.setText("");
