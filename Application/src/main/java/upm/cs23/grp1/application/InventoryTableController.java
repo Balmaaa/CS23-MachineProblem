@@ -13,7 +13,9 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- *
+ *Controller class for managing the presentation and behavior of an inventory table in a JavaFX application.
+ *This class facilitates the interaction between the user interface elements (typically defined in an FXML file)
+ *and the underlying data model related to inventory items.
  */
 public class InventoryTableController
 {
@@ -42,7 +44,9 @@ public class InventoryTableController
     private TableColumn<InventoryData, String> DescriptionColumn;
 
     /**
-     *
+     *Initializes data for an inventory system using provided ArrayLists. This method is responsible for populating
+     *the inventory system with SKU, item names, weight/volume information, category, brand, quantity, and description
+     *data. The provided ArrayLists should contain corresponding data for each category.
      * @param SKUList
      * @param ItemList
      * @param WeightVolumeList
@@ -78,12 +82,8 @@ public class InventoryTableController
         InventoryTable.setItems(newData);
     }
 
-    public TableView<InventoryData> getInventoryTable() {
-        return InventoryTable;
-    }
-
     /**
-     *
+     *The code defines Java method exportToCSV triggered by ActionEvents, likely handling CSV export operations.
      * @param actionEvent
      */
     public void exportToCSV(ActionEvent actionEvent) {
@@ -116,7 +116,7 @@ public class InventoryTableController
     }
 
     /**
-     *
+     *The code defines Java method importToCSV triggered by ActionEvents, likely handling CSV import operations.
      * @param actionEvent
      */
     public void importToCSV(ActionEvent actionEvent)

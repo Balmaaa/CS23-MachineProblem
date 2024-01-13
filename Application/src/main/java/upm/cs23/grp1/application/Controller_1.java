@@ -33,10 +33,13 @@ public class Controller_1
     private static InventoryTableController inventoryController;
     private Stage primaryStage;
 
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
-
+    /**
+     * Handles page transition requests by loading an FXML file and applying optional CSS styles.
+     * @param event
+     * @param fxmlFile
+     * @param cssFile
+     * @throws IOException
+     */
     public void handlePageRequest(ActionEvent event, String fxmlFile, String cssFile) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
         if (cssFile != null && !cssFile.isEmpty()) {
@@ -112,6 +115,11 @@ public class Controller_1
         }
     }
 
+    /**
+     * Allows importing data from a CSV file into the application's inventory.
+     * Reads CSV file, creates InventoryData objects, and adds them to a temporary table (not added to the main inventory).
+     * @param actionEvent
+     */
     public void importToCSV(ActionEvent actionEvent)
     {
         FileChooser fileChooser = new FileChooser();
@@ -147,19 +155,6 @@ public class Controller_1
             }
         }
     }
-
-    /**
-     * <p>The Add Item Page consists of multiple parts. The first notable part would be the initialization of FXML
-     * elements, which include: Text, TextField, TextArea, Buttons, and etc. These elements are interconnected to one
-     * another, provided that the system collect the data provided to these fields.</p>
-     * <p>The ClearInputFields() </p>
-     * <p>The AddItemToDisplay() Method is used when the user has accomplished filling up all the required information from
-     * the text fields and text areas. Upon pressing the button, the code would begin by acquiring the text from the said
-     * fields and converting such to a string. Afterwards, it will gather the necessary information:</p>
-     * <p>(First Three Consonants of the Category/First Three Letters of the Item Name-Randomized Numbers Ranging from 0000-9999)</p>
-     * <p>When All the Information is arranged and packed into one whole string, it will then be displayed in the interface.
-     * To add, the information gathered is simultaneously added to the InventoryTable in the Inventory Page</p>
-     */
 
     @FXML
     private Text ConsumeItemStock;
@@ -246,6 +241,10 @@ public class Controller_1
         }
     }
 
+    /**
+     *Adds a new item to the display and updates the Inventory Table.
+     *Generates SKU based on input, displays item information, and updates the inventory lists.
+     */
     @FXML
     private void AddItemToDisplay() {
         if (ItemName.getText().isEmpty() || Category.getText().isEmpty() || Brand.getText().isEmpty() ||
@@ -299,6 +298,11 @@ public class Controller_1
         }
     }
 
+    /**
+     * Generates an SKU based on the provided input (either Category or ItemName).
+     * @param input
+     * @return
+     */
     private StringBuilder generateSKU(String input)
     {
         StringBuilder SKU = new StringBuilder();
@@ -331,6 +335,10 @@ public class Controller_1
         return SKU;
     }
 
+    /**
+     *Deletes an item from the inventory based on the entered Item Name or SKU.
+     *Updates the inventory table and clears input fields.
+     */
     @FXML
     private void DeleteItem(){
         String itemNameText = ItemName.getText().trim().toUpperCase();
@@ -370,6 +378,9 @@ public class Controller_1
         ClearInputFields();
     }
 
+    /**
+     * Updates the inventory table with the latest data from SKUList, ItemList, etc.
+     */
     private void updateInventoryTable()
     {
         ObservableList<InventoryData> data = FXCollections.observableArrayList();
@@ -386,7 +397,8 @@ public class Controller_1
     }
 
     /**
-     *
+     *Consumes a specified quantity of stock for a given SKU.
+     *Updates the inventory table and clears input fields.
      */
     public void ConsumeItemStock()
     {
@@ -429,6 +441,10 @@ public class Controller_1
         ClearInputFields();
     }
 
+    /**
+     *Updates the stock quantity for a given SKU by adding a specified quantity.
+     *Updates the inventory table and clears input fields.
+     */
     public void UpdateItemStock()
     {
         String skuInput = SKUStock.getText().replaceAll("[\\/-]", ""); // Remove '/' and '-' from SKU
@@ -465,6 +481,11 @@ public class Controller_1
         ClearInputFields();
     }
 
+    /**
+     * Helper method to find the index of a SKU in the SKUList, accounting for potential '/' and '-' characters.
+     * @param skuInput
+     * @return
+     */
     private int findSKUIndex(String skuInput)
     {
         for (int i = 0; i < SKUList.size(); i++)
@@ -487,7 +508,7 @@ public class Controller_1
     static final ArrayList<String> DescriptionList = new ArrayList<>();
 
     /**
-     *
+     *The code defines a method AddSKU that appends a new SKU string to an existing SKUList.
      * @param SKU_NewData
      */
     public void AddSKU(String SKU_NewData)
@@ -496,7 +517,7 @@ public class Controller_1
     }
 
     /**
-     *
+     *The code defines a method AddItem that appends a new item string to an existing ItemList.
      * @param Item_NewData
      */
     public void AddItem(String Item_NewData)
@@ -505,7 +526,7 @@ public class Controller_1
     }
 
     /**
-     *
+     *The code defines a method AddWeight that appends a new weight (or volume) string to an existing WeightVolumeList.
      * @param Weight_NewData
      */
     public void AddWeight(String Weight_NewData)
@@ -514,7 +535,7 @@ public class Controller_1
     }
 
     /**
-     *
+     *The code defines a method AddCategory that appends a new category string to an existing CategoryList.
      * @param Category_NewData
      */
     public void AddCategory(String Category_NewData)
@@ -523,7 +544,7 @@ public class Controller_1
     }
 
     /**
-     *
+     *The code defines a method AddBrand that appends a new brand string to an existing BrandList.
      * @param Brand_NewData
      */
     public void AddBrand(String Brand_NewData)
@@ -532,7 +553,7 @@ public class Controller_1
     }
 
     /**
-     * \
+     *The code defines a method AddQuantity that appends a new quantity string to an existing QuantityList.
      * @param Quantity_NewData
      */
     public void AddQuantity(String Quantity_NewData)
@@ -541,7 +562,7 @@ public class Controller_1
     }
 
     /**
-     *
+     *The code defines a method AddDescription that appends a new description string to an existing DescriptionList.
      * @param Description_NewData
      */
     public void AddDescription(String Description_NewData)

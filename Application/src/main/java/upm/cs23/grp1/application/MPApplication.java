@@ -20,14 +20,10 @@ import java.util.Objects;
 import java.util.Optional;
 
 import static upm.cs23.grp1.application.Controller_1.*;
-
-/**
- *
- */
 public class MPApplication extends Application
 {
     /**
-     *
+     * The entry point for the JAVAFX application.
      * @param PrimaryStage
      * @throws IOException
      */
@@ -50,7 +46,8 @@ public class MPApplication extends Application
     }
 
     /**
-     *
+     *Displays an exit confirmation page in the specified JavaFX Stage. This method is designed to prompt the user
+     *for confirmation before exiting the application, allowing for graceful termination.
      * @param Stage
      */
     public void ExitConfirmationPage(Stage Stage)
@@ -121,7 +118,8 @@ public class MPApplication extends Application
     private static Stage InventoryStage = null;
 
     /**
-     *
+     *Initializes and displays the inventory stage for the application. This method is responsible for setting up
+     *the user interface components related to inventory management and presenting the inventory stage to the user.
      */
     public void InventoryStage()
     {
@@ -134,7 +132,8 @@ public class MPApplication extends Application
     }
 
     /**
-     *
+     *It initializes the JavaFX application and starts the JavaFX runtime, invoking the start method to
+     *configure and display the initial user interface.
      * @param args
      */
     public static void main(String[] args)
