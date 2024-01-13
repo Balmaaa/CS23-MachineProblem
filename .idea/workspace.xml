@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Adjust add item and delete item transitions">
+    <list default="true" id="49485fb9-e2d9-48b1-a989-ae5b952188ad" name="Changes" comment="Fixed DeleteItem Page; Removed menu item for main page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/upm/cs23/grp1/application/Controller_1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,7 @@
       <updated>1701885842829</updated>
       <workItem from="1705069719729" duration="108000" />
       <workItem from="1705069844399" duration="8354000" />
-      <workItem from="1705101300969" duration="9392000" />
+      <workItem from="1705101300969" duration="7755000" />
     </task>
     <task id="LOCAL-00001" summary="Completed DeleteItem() method;&#10;Fixed inventory data issue;">
       <option name="closed" value="true" />
@@ -123,15 +124,7 @@
       <option name="project" value="LOCAL" />
       <updated>1705108698748</updated>
     </task>
-    <task id="LOCAL-00009" summary="Adjust add item and delete item transitions">
-      <option name="closed" value="true" />
-      <created>1705109376115</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1705109376115</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,8 +150,7 @@
     <MESSAGE value="Fixed clear input fields on consume/update stock" />
     <MESSAGE value="Set menu items as main-view buttons" />
     <MESSAGE value="Fixed DeleteItem Page; Removed menu item for main page" />
-    <MESSAGE value="Adjust add item and delete item transitions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust add item and delete item transitions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed DeleteItem Page; Removed menu item for main page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
