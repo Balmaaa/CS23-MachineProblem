@@ -14,7 +14,9 @@ public class InventoryData
     private final StringProperty Description;
 
     /**
-     *
+     *This constructor initializes an
+     *InventoryData object with the provided values for SKU, item name, weight/volume, category, brand,
+     *quantity, and description.
      * @param SKU
      * @param ItemName
      * @param WeightVolume
