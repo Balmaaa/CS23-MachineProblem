@@ -16,10 +16,10 @@
       <font>
          <Font size="14.0" />
       </font></TextField>
-   <Button layoutX="122.0" layoutY="285.0" mnemonicParsing="false" onAction="#DeleteItem" prefHeight="52.0" prefWidth="124.0" text="Delete Item" />
+   <Button fx:id="DeleteItemButton" layoutX="122.0" layoutY="285.0" mnemonicParsing="false" onAction="#DeleteItem" prefHeight="52.0" prefWidth="124.0" text="Delete Item" />
    <Text fx:id="deletionMessageText" layoutX="22.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="331.0">
       <font>
          <Font size="14.0" />
       </font></Text>
-   <Button layoutX="181.0" layoutY="421.0" mnemonicParsing="false" onAction="#MainPage" text="Return to Main Menu" />
+   <Button fx:id="ReturnButton" layoutX="181.0" layoutY="421.0" mnemonicParsing="false" onAction="#MainPage" text="Return to Main Menu" />
 </AnchorPane>
