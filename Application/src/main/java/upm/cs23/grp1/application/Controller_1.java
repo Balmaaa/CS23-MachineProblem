@@ -19,14 +19,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Optional;
-
 
 public class Controller_1
 {
     private Stage Stage;
     private Scene Scene;
     private static InventoryTableController inventoryController;
+    private boolean IsInventoryPageOpen = false;
 
     //================================================================================================================//
     //                                            PAGE TRANSITION FUNCTIONS                                           //
@@ -59,7 +58,6 @@ public class Controller_1
         }
 
         Scene newScene = new Scene(root);
-
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.setScene(newScene);
         currentStage.show();
@@ -73,24 +71,37 @@ public class Controller_1
         handlePageRequest(event,"AddItemPage-View.fxml", "AddItemPage-Design.css");
     }
 
-    public void DeleteItemPage(ActionEvent event) throws IOException {
+    public void DeleteItemPage(ActionEvent event) throws IOException
+    {
         handlePageRequest(event,  "DeleteItemPage-View.fxml", null);
     }
 
-    public void InventoryPage(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
-            Parent root = loader.load();
-            root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("InventoryPage-Design.css")).toExternalForm());
+    public void InventoryPage(ActionEvent event) throws IOException
+    {
+        try
+        {
+            if(Stage == null)
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
+                Parent Root = loader.load();
+                Root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("InventoryPage-Design.css")).toExternalForm());
 
-            Stage inventoryStage = new Stage();
-            inventoryStage.setScene(new Scene(root));
+                Stage = new Stage();
+                Stage.setScene(new Scene(Root));
 
-            inventoryController = loader.getController();
-            inventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
+                inventoryController = loader.getController();
+                inventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
 
-            inventoryStage.show();
-        } catch (IOException e) {
+                Stage.setOnCloseRequest(E -> Stage = null);
+                Stage.show();
+            }
+            else
+            {
+                Stage.toFront();
+            }
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
