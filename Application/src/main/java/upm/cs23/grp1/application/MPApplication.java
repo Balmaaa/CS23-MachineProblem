@@ -8,12 +8,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;
+
+import static upm.cs23.grp1.application.Controller_1.*;
 
 public class MPApplication extends Application
 {
@@ -52,6 +58,7 @@ public class MPApplication extends Application
         {
             if(Result.get().equals(YesButton))
             {
+                exportToCSV();
                 System.out.println("Program Terminated");
                 Stage.close();
             }
@@ -62,6 +69,34 @@ public class MPApplication extends Application
             else if(Result.get().equals(CancelButton))
             {
                 System.out.println("Exit Operation Cancelled");
+            }
+        }
+    }
+
+    private void exportToCSV() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save CSV File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                // Write CSV header
+                writer.write("SKU,Item,Weight/Volume,Category,Brand,Quantity,Description");
+                writer.newLine();
+
+                // Write data rows
+                for (int i = 0; i < SKUList.size(); i++) {
+                    writer.write(String.format("%s,%s,%s,%s,%s,%s,%s",
+                            SKUList.get(i), ItemList.get(i), WeightVolumeList.get(i),
+                            CategoryList.get(i), BrandList.get(i), QuantityList.get(i), DescriptionList.get(i)));
+                    writer.newLine();
+                }
+
+                writer.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("IOException occurred while exporting data to CSV");
             }
         }
     }

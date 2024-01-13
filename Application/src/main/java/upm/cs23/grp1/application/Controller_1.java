@@ -444,13 +444,13 @@ public class Controller_1
         return -1;
     }
 
-    private static final ArrayList<String> SKUList = new ArrayList<>();
-    private static final ArrayList<String> ItemList = new ArrayList<>();
-    private static final ArrayList<String> WeightVolumeList = new ArrayList<>();
-    private static final ArrayList<String> CategoryList = new ArrayList<>();
-    private static final ArrayList<String> BrandList = new ArrayList<>();
-    private static final ArrayList<String> QuantityList = new ArrayList<>();
-    private static final ArrayList<String> DescriptionList = new ArrayList<>();
+    static final ArrayList<String> SKUList = new ArrayList<>();
+    static final ArrayList<String> ItemList = new ArrayList<>();
+    static final ArrayList<String> WeightVolumeList = new ArrayList<>();
+    static final ArrayList<String> CategoryList = new ArrayList<>();
+    static final ArrayList<String> BrandList = new ArrayList<>();
+    static final ArrayList<String> QuantityList = new ArrayList<>();
+    static final ArrayList<String> DescriptionList = new ArrayList<>();
 
     public void AddSKU(String SKU_NewData)
     {
