@@ -115,12 +115,13 @@ public class Controller_1
                 {
                     String[] values = line.split(",");
                     if (values.length == 7)
-                    { // Assuming there are 7 columns in your CSV
+                    {
                         InventoryData item = new InventoryData(values[0], values[1], values[2], values[3], values[4], values[5], values[6]);
                         importedData.add(item);
                     }
                 }
-                .getItems().addAll(importedData);
+                TableView<InventoryData> InventoryTable = new TableView<>();
+                InventoryTable.getItems().addAll(importedData);
             }
             catch (IOException e)
             {

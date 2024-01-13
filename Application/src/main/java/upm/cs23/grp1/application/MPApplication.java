@@ -82,7 +82,7 @@ public class MPApplication extends Application
         InventoryStage.setResizable(false);
         InventoryStage.initModality(Modality.NONE);
     }
-
+ 
     public static void main(String[] args)
     {
         launch();
