@@ -8,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
@@ -42,71 +44,56 @@ public class Controller_1
      * @author Emiel Magante
      */
 
-    public void MainPage(ActionEvent Event) throws IOException
-    {
-        MenuItem MenuItem = (MenuItem) Event.getSource();
-        String MenuItemText = MenuItem.getText();
+    private Stage primaryStage;  // Reference to the primary stage
 
-        if("Main Page".equals(MenuItemText))
-        {
-            Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main-View.fxml")));
-            Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
-            Scene = new Scene(Root);
-            Stage.setScene(Scene);
-            Stage.show();
-        }
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
-    public void AddItemPage(ActionEvent Event) throws IOException
-    {
-        MenuItem MenuItem = (MenuItem) Event.getSource();
-        String MenuItemText = MenuItem.getText();
-
-        if("Add Item Page".equals(MenuItemText))
-        {
-            Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddItemPage-View.fxml")));
-            Root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("AddItemPage-Design.css")).toExternalForm());
-            Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
-            Scene = new Scene(Root);
-            Stage.setScene(Scene);
-            Stage.show();
+    public void handlePageRequest(ActionEvent event, String pageName, String fxmlFile, String cssFile) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
+        if (cssFile != null && !cssFile.isEmpty()) {
+            root.getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssFile)).toExternalForm());
         }
+
+        Stage stage = new Stage();
+
+        if ("View Inventory".equals(pageName)) {
+            stage.initOwner(primaryStage);
+            stage.initModality(Modality.WINDOW_MODAL);
+        }
+
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
-    public void DeleteItemPage(ActionEvent Event) throws IOException
-    {
-        MenuItem MenuItem = (MenuItem) Event.getSource();
-        String MenuItemText = MenuItem.getText();
-
-        if("Delete Item Page".equals(MenuItemText))
-        {
-            Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DeleteItemPage-View.fxml")));
-            Stage = (Stage) MenuItem.getParentPopup().getOwnerWindow();
-            Scene = new Scene(Root);
-            Stage.setScene(Scene);
-            Stage.show();
-        }
+    public void MainPage(ActionEvent event) throws IOException {
+        handlePageRequest(event, "Main Page", "Main-View.fxml", null);
     }
 
-    public void InventoryPage(ActionEvent Event) throws IOException {
-        MenuItem MenuItem = (MenuItem) Event.getSource();
-        String MenuItemText = MenuItem.getText();
+    public void AddItemPage(ActionEvent event) throws IOException {
+        handlePageRequest(event, "Add Item Page", "AddItemPage-View.fxml", "AddItemPage-Design.css");
+    }
 
-        if ("View Inventory".equals(MenuItemText)) {
-            try {
-                FXMLLoader Loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
-                Parent Root = Loader.load();
-                Root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("InventoryPage-Design.css")).toExternalForm());
+    public void DeleteItemPage(ActionEvent event) throws IOException {
+        handlePageRequest(event, "Delete Item Page", "DeleteItemPage-View.fxml", null);
+    }
 
-                MPApplication.GetInventoryStage().setScene(new Scene(Root));
+    public void InventoryPage(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("InventoryPage-View.fxml"));
+            Parent root = loader.load();
+            root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("InventoryPage-Design.css")).toExternalForm());
 
-                inventoryController = Loader.getController();
-                inventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
+            Stage inventoryStage = new Stage();
+            inventoryStage.setScene(new Scene(root));
 
-                MPApplication.GetInventoryStage().show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            inventoryController = loader.getController();
+            inventoryController.DataInitialize(SKUList, ItemList, WeightVolumeList, CategoryList, BrandList, QuantityList, DescriptionList);
+
+            inventoryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
