@@ -8,9 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
@@ -50,33 +48,29 @@ public class Controller_1
         this.primaryStage = primaryStage;
     }
 
-    public void handlePageRequest(ActionEvent event, String pageName, String fxmlFile, String cssFile) throws IOException {
+    public void handlePageRequest(ActionEvent event, String fxmlFile, String cssFile) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
         if (cssFile != null && !cssFile.isEmpty()) {
             root.getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssFile)).toExternalForm());
         }
 
-        Stage stage = new Stage();
+        Scene newScene = new Scene(root);
 
-        if ("View Inventory".equals(pageName)) {
-            stage.initOwner(primaryStage);
-            stage.initModality(Modality.WINDOW_MODAL);
-        }
-
-        stage.setScene(new Scene(root));
-        stage.show();
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.setScene(newScene);
+        currentStage.show();
     }
 
     public void MainPage(ActionEvent event) throws IOException {
-        handlePageRequest(event, "Main Page", "Main-View.fxml", null);
+        handlePageRequest(event,"Main-View.fxml", null);
     }
 
     public void AddItemPage(ActionEvent event) throws IOException {
-        handlePageRequest(event, "Add Item Page", "AddItemPage-View.fxml", "AddItemPage-Design.css");
+        handlePageRequest(event,"AddItemPage-View.fxml", "AddItemPage-Design.css");
     }
 
     public void DeleteItemPage(ActionEvent event) throws IOException {
-        handlePageRequest(event, "Delete Item Page", "DeleteItemPage-View.fxml", null);
+        handlePageRequest(event,  "DeleteItemPage-View.fxml", null);
     }
 
     public void InventoryPage(ActionEvent event) throws IOException {
