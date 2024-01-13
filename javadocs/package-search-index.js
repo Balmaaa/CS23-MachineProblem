@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"Test","l":"upm.cs23.grp1.application"}];updateSearchResults();

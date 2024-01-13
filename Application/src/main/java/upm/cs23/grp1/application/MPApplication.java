@@ -21,8 +21,16 @@ import java.util.Optional;
 
 import static upm.cs23.grp1.application.Controller_1.*;
 
+/**
+ *
+ */
 public class MPApplication extends Application
 {
+    /**
+     *
+     * @param PrimaryStage
+     * @throws IOException
+     */
     @Override
     public void start(Stage PrimaryStage) throws IOException
     {
@@ -41,6 +49,10 @@ public class MPApplication extends Application
         InventoryStage();
     }
 
+    /**
+     *
+     * @param Stage
+     */
     public void ExitConfirmationPage(Stage Stage)
     {
         Alert Alert = new Alert(javafx.scene.control.Alert.AlertType.WARNING);
@@ -108,11 +120,9 @@ public class MPApplication extends Application
 
     private static Stage InventoryStage = null;
 
-    public static Stage GetInventoryStage()
-    {
-        return InventoryStage;
-    }
-
+    /**
+     *
+     */
     public void InventoryStage()
     {
         InventoryStage = new Stage();
@@ -123,6 +133,10 @@ public class MPApplication extends Application
         InventoryStage.initModality(Modality.NONE);
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args)
     {
         launch();

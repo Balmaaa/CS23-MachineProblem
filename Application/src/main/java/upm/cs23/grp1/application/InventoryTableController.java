@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class InventoryTableController
 {
     @FXML
@@ -38,6 +41,16 @@ public class InventoryTableController
     @FXML
     private TableColumn<InventoryData, String> DescriptionColumn;
 
+    /**
+     *
+     * @param SKUList
+     * @param ItemList
+     * @param WeightVolumeList
+     * @param CategoryList
+     * @param BrandList
+     * @param QuantityList
+     * @param DescriptionList
+     */
     public void DataInitialize(ArrayList<String> SKUList, ArrayList<String> ItemList, ArrayList<String> WeightVolumeList, ArrayList<String> CategoryList, ArrayList<String> BrandList, ArrayList<String> QuantityList, ArrayList<String> DescriptionList)
     {
         ObservableList<InventoryData> Data = FXCollections.observableArrayList();
@@ -57,6 +70,10 @@ public class InventoryTableController
         DescriptionColumn.setCellValueFactory(CellData -> CellData.getValue().DescriptionProperty());
     }
 
+    /**
+     *
+     * @param newData
+     */
     public void updateTable(ObservableList<InventoryData> newData) {
         InventoryTable.setItems(newData);
     }
@@ -65,6 +82,10 @@ public class InventoryTableController
         return InventoryTable;
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void exportToCSV(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save CSV File");
@@ -94,6 +115,10 @@ public class InventoryTableController
         }
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void importToCSV(ActionEvent actionEvent)
     {
         FileChooser fileChooser = new FileChooser();

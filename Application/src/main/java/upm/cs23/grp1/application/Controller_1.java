@@ -1,3 +1,10 @@
+/**
+ * @author Gabriel Balmaceda
+ * @author Leonna De Vera
+ * @author Louis Lumain
+ * @author Emiel Magante
+ */
+
 package upm.cs23.grp1.application;
 
 import javafx.collections.FXCollections;
@@ -23,24 +30,7 @@ import java.util.Objects;
 public class Controller_1
 {
     private Stage Stage;
-    private Scene Scene;
     private static InventoryTableController inventoryController;
-    private boolean IsInventoryPageOpen = false;
-
-    /**
-     * <p>MainPage() == Transition from any page to the Main Page</p>
-     * <p>AddItemPage() == Transition from any page to the Add Item Page</p>
-     * <p>DeleteItemPage() == Transition from any page to the Delete Item Page</p>
-     * <p>InventoryPage() == Transition from any page to the Inventory Page</p>
-     * <p></p>
-     * <p>Note: All of the Page Transitions would use the Menu Bar for Quicker Access</p>
-     * <p></p>
-     * @author Gabriel Balmaceda
-     * @author Leonna De Vera
-     * @author Louis Lumain
-     * @author Emiel Magante
-     */
-
     private Stage primaryStage;
 
     public void setPrimaryStage(Stage primaryStage) {
@@ -59,19 +49,39 @@ public class Controller_1
         currentStage.show();
     }
 
+    /**
+     * Transition from any page to the Main Page
+     * @param event
+     * @throws IOException
+     */
     public void MainPage(ActionEvent event) throws IOException {
         handlePageRequest(event,"Main-View.fxml", "Main-Design.css");
     }
 
+    /**
+     *Transition from any page to the Add Item Page
+     * @param event
+     * @throws IOException
+     */
     public void AddItemPage(ActionEvent event) throws IOException {
         handlePageRequest(event,"AddItemPage-View.fxml", "AddItemPage-Design.css");
     }
 
+    /**
+     * Transition from any page to the Delete Item Page
+     * @param event
+     * @throws IOException
+     */
     public void DeleteItemPage(ActionEvent event) throws IOException
     {
         handlePageRequest(event,  "DeleteItemPage-View.fxml", "DeleteItemPage-Design.css");
     }
 
+    /**
+     * Transition from any page to the Inventory Page
+     * @param event
+     * @throws IOException
+     */
     public void InventoryPage(ActionEvent event) throws IOException
     {
         try
@@ -142,9 +152,7 @@ public class Controller_1
      * <p>The Add Item Page consists of multiple parts. The first notable part would be the initialization of FXML
      * elements, which include: Text, TextField, TextArea, Buttons, and etc. These elements are interconnected to one
      * another, provided that the system collect the data provided to these fields.</p>
-     * <p>The ClearInputFields() Method is able to clear all the previous inputs made by the user within all text fields.
-     * This allows a quicker yet convenient way of continuously adding items to the inventory without having to manually
-     * remove the previous inputs one-by-one.</p>
+     * <p>The ClearInputFields() </p>
      * <p>The AddItemToDisplay() Method is used when the user has accomplished filling up all the required information from
      * the text fields and text areas. Upon pressing the button, the code would begin by acquiring the text from the said
      * fields and converting such to a string. Afterwards, it will gather the necessary information:</p>
@@ -195,12 +203,22 @@ public class Controller_1
     @FXML
     private Text deletionMessageText;
 
+    /**
+     * Acquires every individual character within a string and checks whether the character is a vowel or consonant.
+     * @param C
+     * @return
+     */
     public static boolean Vowels(char C)
     {
         C = Character.toLowerCase(C);
         return C == 'a' || C == 'e' || C == 'i' || C == 'o' || C == 'u';
     }
 
+    /**
+     * Method is able to clear all the previous inputs made by the user within all text fields.
+     * This allows a quicker yet convenient way of continuously adding items to the inventory without having to manually
+     * remove the previous inputs one-by-one.
+     */
     public void ClearInputFields() {
         if (ItemName != null) {
             ItemName.clear();
@@ -367,6 +385,9 @@ public class Controller_1
         }
     }
 
+    /**
+     *
+     */
     public void ConsumeItemStock()
     {
         String skuInput = SKUStock.getText().replaceAll("[\\/-]", "");
@@ -465,30 +486,64 @@ public class Controller_1
     static final ArrayList<String> QuantityList = new ArrayList<>();
     static final ArrayList<String> DescriptionList = new ArrayList<>();
 
+    /**
+     *
+     * @param SKU_NewData
+     */
     public void AddSKU(String SKU_NewData)
     {
         SKUList.add(SKU_NewData);
     }
+
+    /**
+     *
+     * @param Item_NewData
+     */
     public void AddItem(String Item_NewData)
     {
         ItemList.add(Item_NewData);
     }
+
+    /**
+     *
+     * @param Weight_NewData
+     */
     public void AddWeight(String Weight_NewData)
     {
         WeightVolumeList.add(Weight_NewData);
     }
+
+    /**
+     *
+     * @param Category_NewData
+     */
     public void AddCategory(String Category_NewData)
     {
         CategoryList.add(Category_NewData);
     }
+
+    /**
+     *
+     * @param Brand_NewData
+     */
     public void AddBrand(String Brand_NewData)
     {
         BrandList.add(Brand_NewData);
     }
+
+    /**
+     * \
+     * @param Quantity_NewData
+     */
     public void AddQuantity(String Quantity_NewData)
     {
         QuantityList.add(Quantity_NewData);
     }
+
+    /**
+     *
+     * @param Description_NewData
+     */
     public void AddDescription(String Description_NewData)
     {
         DescriptionList.add(Description_NewData);

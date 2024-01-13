@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"upm.cs23.grp1.application","l":"Controller_1"},{"p":"upm.cs23.grp1.application","l":"InventoryData"},{"p":"upm.cs23.grp1.application","l":"InventoryTableController"},{"p":"upm.cs23.grp1.application","l":"MPApplication"}];updateSearchResults();
