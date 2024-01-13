@@ -27,10 +27,6 @@ public class Controller_1
     private static InventoryTableController inventoryController;
     private boolean IsInventoryPageOpen = false;
 
-    //================================================================================================================//
-    //                                            PAGE TRANSITION FUNCTIONS                                           //
-    //================================================================================================================//
-
     /**
      * <p>MainPage() == Transition from any page to the Main Page</p>
      * <p>AddItemPage() == Transition from any page to the Add Item Page</p>
@@ -45,7 +41,7 @@ public class Controller_1
      * @author Emiel Magante
      */
 
-    private Stage primaryStage;  // Reference to the primary stage
+    private Stage primaryStage;
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -142,10 +138,6 @@ public class Controller_1
         }
     }
 
-    //================================================================================================================//
-    //                                          ADD ITEM PAGE FUNCTIONS                                               //
-    //================================================================================================================//
-
     /**
      * <p>The Add Item Page consists of multiple parts. The first notable part would be the initialization of FXML
      * elements, which include: Text, TextField, TextArea, Buttons, and etc. These elements are interconnected to one
@@ -191,17 +183,17 @@ public class Controller_1
     @FXML
     private TextField Quantity;
 
-   @FXML
-   private TextField SKUStock;
+    @FXML
+    private TextField SKUStock;
 
-   @FXML
-   private TextField SKUStockQuant;
+    @FXML
+    private TextField SKUStockQuant;
 
-   @FXML
-   private TextArea AddDescription;
+    @FXML
+    private TextArea AddDescription;
 
-   @FXML
-   private Text deletionMessageText;
+    @FXML
+    private Text deletionMessageText;
 
     public static boolean Vowels(char C)
     {
@@ -236,7 +228,6 @@ public class Controller_1
         }
     }
 
-
     @FXML
     private void AddItemToDisplay() {
         if (ItemName.getText().isEmpty() || Category.getText().isEmpty() || Brand.getText().isEmpty() ||
@@ -245,14 +236,17 @@ public class Controller_1
             AddedItemOutput.setText("");
             GeneratedSKU.setText("");
             ClearInputFields();
-        } else {
+        }
+        else
+        {
             String ItemNameText = ItemName.getText();
             String CategoryText = Category.getText();
             String BrandText = Brand.getText();
             String WeightVolumeText = WeightVolume.getText();
             String DescriptionText = AddDescription.getText();
 
-            try {
+            try
+            {
                 int QuantityNumber = Integer.parseInt(Quantity.getText());
                 int SKUItemVal = (int) (Math.random() * (9999));
                 String FixedFourDigitSKU = String.format("%04d", SKUItemVal);
@@ -275,7 +269,8 @@ public class Controller_1
                 AddBrand(BrandText);
                 AddQuantity(String.valueOf(QuantityNumber));
                 AddDescription(DescriptionText);
-            } catch (NumberFormatException E) {
+            }
+            catch (NumberFormatException E) {
                 ErrorMessage.setText("Quantity Must Be A Number");
                 AddedItemOutput.setText("");
                 GeneratedSKU.setText("");
@@ -286,22 +281,25 @@ public class Controller_1
         }
     }
 
-    private StringBuilder generateSKU(String input) {
+    private StringBuilder generateSKU(String input)
+    {
         StringBuilder SKU = new StringBuilder();
         String SKUFix = input.toLowerCase().replace(" ", "");
         int ConsonantCount = 0;
 
-        for (char C : SKUFix.toCharArray()) {
-            if (ConsonantCount == 3) {
+        for (char C : SKUFix.toCharArray())
+        {
+            if (ConsonantCount == 3)
+            {
                 break;
             }
-            if (!Vowels(C)) {
+            if (!Vowels(C))
+            {
                 SKU.append(C);
                 ConsonantCount++;
             }
         }
 
-        // Use vowels if the consonant count is less than 3
         for (char C : SKUFix.toCharArray()) {
             if (ConsonantCount == 3) {
                 break;
@@ -315,10 +313,6 @@ public class Controller_1
         return SKU;
     }
 
-
-    //================================================================================================================//
-    //                                          DELETE ITEM PAGE FUNCTIONS                                               //
-    //================================================================================================================//
     @FXML
     private void DeleteItem(){
         String itemNameText = ItemName.getText().trim().toUpperCase();
@@ -329,14 +323,17 @@ public class Controller_1
         }
 
         int indexToRemove = -1;
-        for (int i = 0; i < ItemList.size(); i++) {
-            if (ItemList.get(i).equalsIgnoreCase(itemNameText) || SKUList.get(i).equalsIgnoreCase(itemNameText)) {
+        for (int i = 0; i < ItemList.size(); i++)
+        {
+            if (ItemList.get(i).equalsIgnoreCase(itemNameText) || SKUList.get(i).equalsIgnoreCase(itemNameText))
+            {
                 indexToRemove = i;
                 break;
             }
         }
 
-        if (indexToRemove != -1) {
+        if (indexToRemove != -1)
+        {
             SKUList.remove(indexToRemove);
             ItemList.remove(indexToRemove);
             WeightVolumeList.remove(indexToRemove);
@@ -347,97 +344,113 @@ public class Controller_1
 
             deletionMessageText.setText("Item '" + itemNameText + "' successfully deleted.");
             updateInventoryTable();
-        } else {
+        }
+        else
+        {
             deletionMessageText.setText("The entered item was not found in this inventory!");
         }
         ClearInputFields();
     }
 
-    private void updateInventoryTable() {
+    private void updateInventoryTable()
+    {
         ObservableList<InventoryData> data = FXCollections.observableArrayList();
 
-        for (int i = 0; i < SKUList.size(); i++) {
+        for (int i = 0; i < SKUList.size(); i++)
+        {
             data.add(new InventoryData(SKUList.get(i), ItemList.get(i), WeightVolumeList.get(i), CategoryList.get(i), BrandList.get(i), QuantityList.get(i), DescriptionList.get(i)));
         }
 
-        if (inventoryController != null) {
+        if (inventoryController != null)
+        {
             inventoryController.updateTable(data);
         }
     }
 
-
-
-
-
-
-    //================================================================================================================//
-    //                                           INVENTORY PAGE FUNCTIONS                                             //
-    //================================================================================================================//
-
-    public void ConsumeItemStock() {
-        String skuInput = SKUStock.getText().replaceAll("[\\/-]", ""); // Remove '/' and '-' from SKU
+    public void ConsumeItemStock()
+    {
+        String skuInput = SKUStock.getText().replaceAll("[\\/-]", "");
         String consumeQuantityInput = SKUStockQuant.getText();
 
-        if (skuInput.isEmpty() || consumeQuantityInput.isEmpty()) {
+        if (skuInput.isEmpty() || consumeQuantityInput.isEmpty())
+        {
             System.out.println("Please enter both SKU and quantity.");
             return;
         }
 
         int index = findSKUIndex(skuInput);
-        if (index != -1) {
-            try {
+        if (index != -1)
+        {
+            try
+            {
                 int consumeQuantityValue = Integer.parseInt(consumeQuantityInput);
                 int currentQuantity = Integer.parseInt(QuantityList.get(index));
 
                 if (currentQuantity >= consumeQuantityValue) {
                     QuantityList.set(index, String.valueOf(currentQuantity - consumeQuantityValue));
                     ConsumeItemStock.setText(consumeQuantityValue + " units of SKU " + SKUList.get(index) + " consumed.");
-                } else {
+                }
+                else
+                {
                     ConsumeItemStock.setText("Not enough stock for SKU " + SKUList.get(index));
                 }
-            } catch (NumberFormatException e) {
+            }
+            catch (NumberFormatException e)
+            {
                 ConsumeItemStock.setText("Invalid quantity format.");
             }
-        } else {
+        }
+        else
+        {
             ConsumeItemStock.setText("Item with SKU " + skuInput + " not found.");
         }
         updateInventoryTable();
         ClearInputFields();
     }
 
-    public void UpdateItemStock() {
+    public void UpdateItemStock()
+    {
         String skuInput = SKUStock.getText().replaceAll("[\\/-]", ""); // Remove '/' and '-' from SKU
         String newQuantityInput = SKUStockQuant.getText();
 
-        if (skuInput.isEmpty() || newQuantityInput.isEmpty()) {
+        if (skuInput.isEmpty() || newQuantityInput.isEmpty())
+        {
             UpdateItemStock.setText("Please enter both SKU and new quantity.");
             return;
         }
 
         int index = findSKUIndex(skuInput);
-        if (index != -1) {
-            try {
+        if (index != -1)
+        {
+            try
+            {
                 int currentQuantity = Integer.parseInt(QuantityList.get(index));
                 int newQuantityValue = Integer.parseInt(newQuantityInput);
 
                 QuantityList.set(index, String.valueOf(currentQuantity + newQuantityValue));
 
                 UpdateItemStock.setText(newQuantityValue + " units added to SKU " + SKUList.get(index) + ". New stock: " + QuantityList.get(index));
-            } catch (NumberFormatException e) {
+            }
+            catch (NumberFormatException e)
+            {
                 UpdateItemStock.setText("Invalid quantity format.");
             }
-        } else {
+        }
+        else
+        {
             UpdateItemStock.setText("Item with SKU " + skuInput + " not found.");
         }
         updateInventoryTable();
         ClearInputFields();
     }
 
-    // Helper method to find SKU index with or without '/' and '-'
-    private int findSKUIndex(String skuInput) {
-        for (int i = 0; i < SKUList.size(); i++) {
+    private int findSKUIndex(String skuInput)
+    {
+        for (int i = 0; i < SKUList.size(); i++)
+        {
             String currentSKU = SKUList.get(i).replaceAll("[\\/-]", "");
-            if (currentSKU.equalsIgnoreCase(skuInput)) {
+            if (currentSKU.equalsIgnoreCase(skuInput))
+            {
                 return i;
             }
         }

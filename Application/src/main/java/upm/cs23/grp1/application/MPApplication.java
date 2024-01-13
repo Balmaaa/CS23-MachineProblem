@@ -74,20 +74,22 @@ public class MPApplication extends Application
         }
     }
 
-    private void exportToCSV() {
+    private void exportToCSV()
+    {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save CSV File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
         File file = fileChooser.showSaveDialog(null);
 
-        if (file != null) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                // Write CSV header
+        if (file != null)
+        {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file)))
+            {
                 writer.write("SKU,Item,Weight/Volume,Category,Brand,Quantity,Description");
                 writer.newLine();
 
-                // Write data rows
-                for (int i = 0; i < SKUList.size(); i++) {
+                for (int i = 0; i < SKUList.size(); i++)
+                {
                     writer.write(String.format("%s,%s,%s,%s,%s,%s,%s",
                             SKUList.get(i), ItemList.get(i), WeightVolumeList.get(i),
                             CategoryList.get(i), BrandList.get(i), QuantityList.get(i), DescriptionList.get(i)));
@@ -95,7 +97,9 @@ public class MPApplication extends Application
                 }
 
                 writer.flush();
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
                 System.out.println("IOException occurred while exporting data to CSV");
             }

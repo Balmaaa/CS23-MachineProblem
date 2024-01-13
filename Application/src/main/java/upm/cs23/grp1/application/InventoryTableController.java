@@ -72,50 +72,58 @@ public class InventoryTableController
         File file = fileChooser.showSaveDialog(InventoryTable.getScene().getWindow());
 
         if (file != null) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                // Write CSV header
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file)))
+            {
                 writer.write("SKU,Item,Weight/Volume,Category,Brand,Quantity,Description");
                 writer.newLine();
 
-                // Write data rows
-                for (InventoryData item : InventoryTable.getItems()) {
+                for (InventoryData item : InventoryTable.getItems())
+                {
                     writer.write(String.format("%s,%s,%s,%s,%s,%s,%s",
                             item.getSKU(), item.getItemName(), item.getWeightVolume(),
                             item.getCategory(), item.getBrand(), item.getQuantity(), item.getDescription()));
                     writer.newLine();
                 }
-
                 writer.flush();
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
                 System.out.println("IOException occured");
             }
         }
     }
 
-    public void importToCSV(ActionEvent actionEvent) {
+    public void importToCSV(ActionEvent actionEvent)
+    {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open CSV File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
         File file = fileChooser.showOpenDialog(new Stage());
 
-        if (file != null) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        if (file != null)
+        {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file)))
+            {
                 String line;
                 reader.readLine();
 
                 ObservableList<InventoryData> importedData = FXCollections.observableArrayList();
 
-                while ((line = reader.readLine()) != null) {
+                while ((line = reader.readLine()) != null)
+                {
                     String[] values = line.split(",");
-                    if (values.length == 7) { // Assuming there are 7 columns in your CSV
+                    if (values.length == 7)
+                    {
                         InventoryData item = new InventoryData(values[0], values[1], values[2], values[3], values[4], values[5], values[6]);
                         importedData.add(item);
                     }
                 }
 
                 InventoryTable.getItems().addAll(importedData);
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
                 System.out.println("IOException occurred");
             }
